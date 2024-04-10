@@ -51,6 +51,8 @@ a {
     max-width: var(--app-width);
     z-index: 3;
     border: 1px solid blue;
+
+    background-color: white;
 }
 
 .header ul {
