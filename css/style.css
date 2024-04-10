@@ -139,6 +139,10 @@ a {
     Hamburger Menu - Dropped-Down State
    ======================================== */
 
+.header .menu {
+    transition: max-height .2s ease-out;
+}
+
 .header .menu-btn:checked ~ .menu {
     max-height: 20em;
 }
