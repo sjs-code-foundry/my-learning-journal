@@ -166,6 +166,36 @@ a {
     top: 0;
 }
 
+/* ================================================
+    Hamburger Menu - Disabled (Landscape) State
+   ================================================ */
+
+@media screen and (orientation: Landscape) {
+
+    .header {
+        background-color: lightblue;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .header .menu {
+        display: flex;
+        flex-direction: row;
+
+        max-height: 100%;
+    }
+
+    .header li button {
+        padding-left: 1em;
+        padding-right: 1em;
+
+        width: 100%;
+    }
+
+}
+
 /* ========================
     Container & Content
    ========================*/
