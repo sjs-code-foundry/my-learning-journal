@@ -59,15 +59,11 @@ a {
     right: 0;
 
     width: 100%;
-    max-width: var(--app-width);
+    max-width: 100%;
     z-index: 3;
 
     background-color: var(--color-banners);
     color: var(--color-banner-text);
-}
-
-.header img {
-    filter: invert(100%);
 }
 
 .header ul {
@@ -80,21 +76,24 @@ a {
 .header li button {
     display: block;
     padding: 0.625em 0;
-    width: var(--app-width);
+    width: 100vw;
 
     font-size: 2rem;
     text-transform: uppercase;
+
+    border: none;
 
     background-color: var(--color-banners);
     color: var(--color-banner-text);
 }
 
 .header img {
-    margin: auto 0;
+    margin: auto 0.5em;
     font-size: 2rem;
     text-decoration: none;
     width: 1.4475em;
     height: 1.4475em;
+    filter: invert(100%);
 }
 
 .header h3 {
