@@ -26,6 +26,27 @@ const allSections = document.getElementsByClassName("section-content")
 
 tabDefault(tabMenuHomeBtn.dataset.tab)
 
+/* ==== Post Placeholders ==== */
+
+// const posts = [
+//     new PostTemplate("", "", "", false),
+// ]
+
+// Complete later ^^^
+
+/* ========================
+    Object Constructors
+   ======================== */
+
+function PostTemplate(date, title, body, relapseBool) {
+
+    this.date = new Date(date)
+    this.title = title
+    this.body = body
+    this.relapse = relapseBool
+
+}
+
 /* ====================
     Event Listeners
    ==================== */
