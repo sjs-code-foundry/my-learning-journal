@@ -29,12 +29,12 @@ tabDefault(tabMenuHomeBtn.dataset.tab)
 /* ==== Post Placeholders ==== */
 
 const posts = [
-    new PostTemplate("2024-01-15", "This is bad", "Something something bad", true),
-    new PostTemplate("2024-01-22", "This is ok", "Something something ok", false),
-    new PostTemplate("2024-01-29", "This is good", "Something something good", false),
-    new PostTemplate("2024-01-29", "Bollocks", "Something something I'm a failure", true),
-    new PostTemplate("2024-01-29", "Getting better", "Something something things are looking up", false),
-    new PostTemplate("2024-01-29", "Freedom!", "Something something a new life begins", false)
+    new PostTemplate("img/chat.png", "2024-01-15", "This is bad", "Something something bad", true),
+    new PostTemplate("img/chat.png", "2024-01-22", "This is ok", "Something something ok", false),
+    new PostTemplate("img/chat.png", "2024-01-29", "This is good", "Something something good", false),
+    new PostTemplate("img/chat.png", "2024-01-29", "Bollocks", "Something something I'm a failure", true),
+    new PostTemplate("img/chat.png", "2024-01-29", "Getting better", "Something something things are looking up", false),
+    new PostTemplate("img/chat.png", "2024-01-29", "Freedom!", "Something something a new life begins", false)
 ]
 
 renderBlogPostList(posts)
@@ -43,8 +43,9 @@ renderBlogPostList(posts)
     Object Constructors
    ======================== */
 
-function PostTemplate(date, title, body, relapseBool) {
+function PostTemplate(img, date, title, body, relapseBool) {
 
+    this.imgUrl = img
     this.date = new Date(date)
     this.title = title
     this.body = body
@@ -167,6 +168,10 @@ function renderBlogPost(post, listId) {
 
     let newPost = document.createElement("li")
     newPost.setAttribute("class", "blog-post")
+
+    const postImg = document.createElement("img")
+    postImg.setAttribute("src", post.imgUrl)
+    newPost.appendChild(postImg)
 
     const postDate = document.createElement("h4")
     const formattedDate = post.date.toLocaleString('en-UK', { timeZoneName: 'short'})

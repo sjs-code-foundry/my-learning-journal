@@ -243,3 +243,7 @@ a {
 .blog-reel li {
     border: 1px solid green;
 }
+
+.blog-reel li img {
+    width: var(--app-width);
+}
