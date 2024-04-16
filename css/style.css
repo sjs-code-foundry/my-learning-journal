@@ -36,6 +36,8 @@ body {
 
     background-color: var(--color-primary);
     color: var(--color-text);
+
+    font-family: "Source Sans 3", sans-serif;
 }
 
 a {
@@ -225,4 +227,19 @@ a {
     display: none;
 
     margin-top: calc(var(--menu-icon-width) * 2);
+}
+
+/* ==== Recent Post Lists ==== */
+
+.blog-reel {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+
+    list-style-type: none;
+    padding: 0;
+}
+
+.blog-reel li {
+    border: 1px solid green;
 }
