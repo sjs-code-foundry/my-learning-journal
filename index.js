@@ -40,7 +40,8 @@ const posts = [
     new PostTemplate("img/chat.png", "2024-01-29", "This is good", "Something something good", false),
     new PostTemplate("img/chat.png", "2024-01-29", "Bollocks", "Something something I'm a failure", true),
     new PostTemplate("img/chat.png", "2024-01-29", "Getting better", "Something something things are looking up", false),
-    new PostTemplate("img/chat.png", "2024-01-29", "Freedom!", "Something something a new life begins", false)
+    new PostTemplate("img/chat.png", "2024-01-29", "Freedom!", "Something something a new life begins", false),
+    new PostTemplate("img/chat.png", "2024-01-29", "I love freedom", "Something something new life is going well", false)
 ]
 
 renderBlogPostList(posts, postDisplayCount)
@@ -101,6 +102,13 @@ for (let btn of blogDisplayBtnList) {
     dispBtn.addEventListener("click", function() {
 
         postDisplayCount = increasePostDisplayLimit(postDisplayCount, 3, posts.length)
+
+        if (postDisplayCount >= posts.length) {
+
+            dispBtn.style.display = "none"
+
+        }
+
         clearBlogPostList()
         renderBlogPostList(posts, postDisplayCount)
 
@@ -149,8 +157,6 @@ function tabDefault(targetTab) {
 /* ==== Blog Post Display ==== */
 
 function increasePostDisplayLimit(displayCount, incAmount, limit) {
-
-    console.log(`Post limit = ${displayCount}; Increment = ${incAmount}; Limit = ${limit}`)
 
     if (displayCount >= limit || (displayCount + incAmount) >= limit) {
 
