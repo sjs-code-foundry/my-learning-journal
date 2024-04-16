@@ -105,7 +105,7 @@ for (let btn of blogDisplayBtnList) {
 
         if (postDisplayCount >= posts.length) {
 
-            dispBtn.style.display = "none"
+            hideViewMorePostBtns()
 
         }
 
@@ -198,6 +198,18 @@ function clearBlogPostList() {
         let blogReelEl = document.getElementById(idList[id])
 
         blogReelEl.innerHTML = ""
+
+    }
+
+}
+
+function hideViewMorePostBtns() {
+
+    for (let btn of blogDisplayBtnList) {
+
+        const dispBtn = document.getElementById(btn)
+
+        dispBtn.style.display = "none"
 
     }
 
