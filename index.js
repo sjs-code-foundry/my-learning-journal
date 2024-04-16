@@ -31,7 +31,10 @@ tabDefault(tabMenuHomeBtn.dataset.tab)
 const posts = [
     new PostTemplate("2024-01-15", "This is bad", "Something something bad", true),
     new PostTemplate("2024-01-22", "This is ok", "Something something ok", false),
-    new PostTemplate("2024-01-29", "This is good", "Something something good", false)
+    new PostTemplate("2024-01-29", "This is good", "Something something good", false),
+    new PostTemplate("2024-01-29", "Bollocks", "Something something I'm a failure", true),
+    new PostTemplate("2024-01-29", "Getting better", "Something something things are looking up", false),
+    new PostTemplate("2024-01-29", "Freedom!", "Something something a new life begins", false)
 ]
 
 renderBlogPostList(posts)
