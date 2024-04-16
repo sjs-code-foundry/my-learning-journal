@@ -34,14 +34,16 @@ let postDisplayCount = 3
 
 /* == Post Placeholder Data  == */
 
+const postPlaceholderImgSrc = "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.jpg"
+
 const posts = [
-    new PostTemplate("img/chat.png", "2024-01-15", "This is bad", "Something something bad", true),
-    new PostTemplate("img/chat.png", "2024-01-22", "This is ok", "Something something ok", false),
-    new PostTemplate("img/chat.png", "2024-01-29", "This is good", "Something something good", false),
-    new PostTemplate("img/chat.png", "2024-01-29", "Bollocks", "Something something I'm a failure", true),
-    new PostTemplate("img/chat.png", "2024-01-29", "Getting better", "Something something things are looking up", false),
-    new PostTemplate("img/chat.png", "2024-01-29", "Freedom!", "Something something a new life begins", false),
-    new PostTemplate("img/chat.png", "2024-01-29", "I love freedom", "Something something new life is going well", false)
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-15", "This is bad", "Something something bad", true),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-22", "This is ok", "Something something ok", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "This is good", "Something something good", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Bollocks", "Something something I'm a failure", true),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Getting better", "Something something things are looking up", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Freedom!", "Something something a new life begins", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "I love freedom", "Something something new life is going well", false)
 ]
 
 renderBlogPostList(posts, postDisplayCount)
@@ -211,7 +213,7 @@ function hideViewMorePostBtns() {
 
         dispBtn.style.display = "none"
 
-    }
+    } // Duplicate form field id in the same form - Get to the bottom of this
 
 }
 

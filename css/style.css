@@ -40,9 +40,7 @@ body {
     font-family: "Source Sans 3", sans-serif;
 }
 
-a {
-    display: none; /* Temporary - Remove once header is constructed */
-}
+
 
 /* ====================================
     Hamburger Menu - Base Attributes
