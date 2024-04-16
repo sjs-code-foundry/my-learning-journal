@@ -28,6 +28,12 @@ tabDefault(tabMenuHomeBtn.dataset.tab)
 
 /* ==== Post Placeholders ==== */
 
+/* == Post Placeholder Display Limiter  == */
+
+let postDisplayCount = 3
+
+/* == Post Placeholder Data  == */
+
 const posts = [
     new PostTemplate("img/chat.png", "2024-01-15", "This is bad", "Something something bad", true),
     new PostTemplate("img/chat.png", "2024-01-22", "This is ok", "Something something ok", false),
@@ -37,7 +43,7 @@ const posts = [
     new PostTemplate("img/chat.png", "2024-01-29", "Freedom!", "Something something a new life begins", false)
 ]
 
-renderBlogPostList(posts)
+renderBlogPostList(posts, postDisplayCount)
 
 /* ========================
     Object Constructors
@@ -86,6 +92,22 @@ tabMenuEl.addEventListener("click", function(e) {
 
 })
 
+const blogDisplayBtnList = getIdsFromGatheringElsByClass("blog-display-btn")
+
+for (let btn of blogDisplayBtnList) {
+
+    const dispBtn = document.getElementById(btn)
+
+    dispBtn.addEventListener("click", function() {
+
+        postDisplayCount = increasePostDisplayLimit(postDisplayCount, 3, posts.length)
+        clearBlogPostList()
+        renderBlogPostList(posts, postDisplayCount)
+
+    })
+
+}
+
 /* ============
     Functions
    ============ */
@@ -126,7 +148,23 @@ function tabDefault(targetTab) {
 
 /* ==== Blog Post Display ==== */
 
-function renderBlogPostList(posts) {
+function increasePostDisplayLimit(displayCount, incAmount, limit) {
+
+    console.log(`Post limit = ${displayCount}; Increment = ${incAmount}; Limit = ${limit}`)
+
+    if (displayCount >= limit || (displayCount + incAmount) >= limit) {
+
+        return limit
+
+    } else {
+
+        return displayCount + incAmount
+
+    }
+
+}
+
+function renderBlogPostList(posts, limit) {
 
     const idList = getIdsFromGatheringElsByClass("blog-reel")
 
@@ -134,11 +172,26 @@ function renderBlogPostList(posts) {
 
         let blogReelEl = document.getElementById(idList[id])
         
-        for (let p in posts) {
+        
+        for (let i = 0; i < limit; i++) {
 
-            blogReelEl.appendChild(renderBlogPost(posts[p], idList[id]))
+            blogReelEl.appendChild(renderBlogPost(posts[i], idList[id]))
 
         }
+
+    }
+
+}
+
+function clearBlogPostList() {
+
+    const idList = getIdsFromGatheringElsByClass("blog-reel")
+
+    for (let id in idList) {
+
+        let blogReelEl = document.getElementById(idList[id])
+
+        blogReelEl.innerHTML = ""
 
     }
 
