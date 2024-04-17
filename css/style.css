@@ -230,18 +230,24 @@ body {
 /* ==== Recent Post Lists ==== */
 
 .blog-reel {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-gap: 1em;
 
     list-style-type: none;
+
     padding: 0;
+
+    border: 1px solid red;
 }
 
-.blog-reel li {
+.blog-post {
+    /* width: auto; */
+
     border: 1px solid green;
 }
 
 .blog-reel li img {
-    width: var(--app-width);
+    object-fit: cover;
+    max-width: 100%;
 }
