@@ -267,6 +267,16 @@ function getIdsFromGatheringElsByClass(className) {
 
 }
 
+function renderLatestSplashPost(post, listId) {
+
+    // Create splash image, date, title, first paragraph in that order
+
+    // Append each child to newSplash
+
+    // return newSplash
+
+}
+
 function renderBlogPost(post, listId) {
 
     let newPost = document.createElement("li")
