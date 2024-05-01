@@ -46,7 +46,9 @@ const posts = [
     new PostTemplate(postPlaceholderImgSrc, "2024-01-15 09:25:00", "I love freedom", "Something something new life is going well", false)
 ]
 
-renderBlogPostList(posts, postDisplayCount)
+const sortedPosts = sortBlogPostListByDate(posts, true)
+
+renderBlogPostList(sortedPosts, postDisplayCount)
 
 /* ========================
     Object Constructors
@@ -204,8 +206,6 @@ function renderBlogPostList(posts, limit) {
 
     const idList = getIdsFromGatheringElsByClass("blog-reel")
 
-    const sortedPosts = sortBlogPostListByDate(posts, true)
-
     for (let id in idList) {
 
         let blogReelEl = document.getElementById(idList[id])
@@ -213,7 +213,7 @@ function renderBlogPostList(posts, limit) {
         
         for (let i = 0; i < limit; i++) {
 
-            blogReelEl.appendChild(renderBlogPost(sortedPosts[i], idList[id]))
+            blogReelEl.appendChild(renderBlogPost(posts[i], idList[id]))
 
         }
 
