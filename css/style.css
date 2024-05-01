@@ -227,6 +227,28 @@ body {
     margin-top: calc(var(--menu-icon-width) * 2);
 }
 
+/* ==== Latest Splash Post ==== */
+
+#hero-post {
+    background-size: cover;
+
+    width: var(--app-width);
+    height: 400px;
+
+    overflow: hidden;
+}
+
+#hero-post img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+#hero-post h3, #hero-post h4, #hero-post p {
+    font-size: 175%;
+    color: white;
+    -webkit-text-stroke: 0.05rem var(--color-text); /* Number 4 displays weird - potential fix? */
+}
+
 /* ==== Recent Post Lists ==== */
 
 .blog-reel {
@@ -237,15 +259,13 @@ body {
     list-style-type: none;
 
     padding: 0;
-
-    border: 1px solid red;
 }
 
-.blog-post {
-    /* width: auto; */
+/* .blog-post {
+    width: auto;
 
     border: 1px solid green;
-}
+} */
 
 .blog-reel li img {
     object-fit: cover;

@@ -5,6 +5,8 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 
 ### Aesthetics
 - [x] Format the blog post dates into UK standard of DD/MM/YYYY (give times too?)
+- [ ] Make hero post display presentable in line with Figma file
+- [ ] Make blog post displays presentable in line with Figma file
 - [ ] Create a footer with page title and copyright 2024
 
 ### Content
@@ -16,7 +18,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 ### JS Functions
 - [x] Blog posts automatically sorted by date
 - [x] "View More" button to display more posts
-- [ ] Home page has latest blog up top, with image displayed as a splash background
+- [x] Home page has latest blog up top, with image displayed as a splash background
 - [ ] Each blog post is clickable, leading to a page that displays that one in full screen
 - [x] Blog post list is only loaded once, then used repeatedly
 

@@ -20,7 +20,7 @@ const allSections = document.getElementsByClassName("section-content")
 
 /* ==== Constants ==== */
 
-// Constants here
+const dateOptions = ['en-UK', { dateStyle: 'full', hour12: true}]
 
 /* ==== Default Functions ==== */
 
@@ -47,6 +47,8 @@ const posts = [
 ]
 
 const sortedPosts = sortBlogPostListByDate(posts, true)
+
+renderLatestSplashPost(sortedPosts)
 
 renderBlogPostList(sortedPosts, postDisplayCount)
 
@@ -267,13 +269,34 @@ function getIdsFromGatheringElsByClass(className) {
 
 }
 
-function renderLatestSplashPost(post, listId) {
+function renderLatestSplashPost(postList) {
+
+    const heroPostEl = document.getElementById("hero-post")
+
+    // Find latest post in postList
+
+    const latestPost = postList.reduce(function(prev, current) {
+
+        return (prev && prev.date > current.date) ? prev: current
+
+    })
 
     // Create splash image, date, title, first paragraph in that order
-
     // Append each child to newSplash
+    heroPostEl.style.backgroundImage = `url(${latestPost.imgUrl})`
 
-    // return newSplash
+    const postDate = document.createElement("h4")
+    const formattedDate = latestPost.date.toLocaleString(dateOptions[0], dateOptions[1])
+    postDate.textContent = formattedDate
+    heroPostEl.appendChild(postDate) // Doesn't show up - FIX!!!
+
+    const postTitle = document.createElement("h3")
+    postTitle.textContent = latestPost.title
+    heroPostEl.appendChild(postTitle) // Doesn't show up - FIX!!!
+
+    const postBody = document.createElement("p")
+    postBody.textContent = latestPost.body
+    heroPostEl.appendChild(postBody) // Doesn't show up - FIX!!!
 
 }
 
@@ -287,7 +310,7 @@ function renderBlogPost(post, listId) {
     newPost.appendChild(postImg)
 
     const postDate = document.createElement("h4")
-    const formattedDate = post.date.toLocaleString('en-UK', { dateStyle: 'full', hour12: true})
+    const formattedDate = post.date.toLocaleString(dateOptions[0], dateOptions[1])
     postDate.textContent = formattedDate
     newPost.appendChild(postDate)
 
