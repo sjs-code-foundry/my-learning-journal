@@ -8,8 +8,6 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 - [ ] Create a footer with page title and copyright 2024
 
 ### Content
-- [ ] Statistics page that tracks relapses and average time between relapse
-- [ ] Calendar view for statistics page (CSS grid, or an API?)
 - [ ] Re-write blog posts to reflect a realistic recovery journey
 - [ ] Find appropriate stock images for each post, and credit them
 - [ ] Find a placeholder avatar for Hiram (the author)
@@ -18,12 +16,13 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 ### JS Functions
 - [x] Blog posts automatically sorted by date
 - [x] "View More" button to display more posts
-- [ ] Consistent hook paragraph that displays the same on all pages
+- [ ] Home page has latest blog up top, with image displayed as a splash background
 - [ ] Each blog post is clickable, leading to a page that displays that one in full screen
 - [ ] Blog post list is only loaded once, then used repeatedly
 
 ### Navigation
-- [ ] Hamburger menu that appears for portrait mode (also for smaller landscape screens)
+- [x] Hamburger menu that appears for portrait mode
+- [ ] Implement hamburger menu for smaller landscape screens
 
 ### Responsiveness
 - [ ] All page units expressed in relative units
