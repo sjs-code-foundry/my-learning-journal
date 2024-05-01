@@ -4,7 +4,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 ## Planned Features
 
 ### Aesthetics
-- [ ] Format the blog post dates into UK standard of DD/MM/YYYY (give times too?)
+- [x] Format the blog post dates into UK standard of DD/MM/YYYY (give times too?)
 - [ ] Create a footer with page title and copyright 2024
 
 ### Content
@@ -16,11 +16,11 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 - [ ] Write a succinct and engaging About Me page
 
 ### JS Functions
-- [ ] Blog posts can be added, edited and deleted
-- [ ] Blog posts automatically sorted by date
+- [x] Blog posts automatically sorted by date
 - [x] "View More" button to display more posts
 - [ ] Consistent hook paragraph that displays the same on all pages
 - [ ] Each blog post is clickable, leading to a page that displays that one in full screen
+- [ ] Blog post list is only loaded once, then used repeatedly
 
 ### Navigation
 - [ ] Hamburger menu that appears for portrait mode (also for smaller landscape screens)

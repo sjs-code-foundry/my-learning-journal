@@ -37,13 +37,13 @@ let postDisplayCount = 3
 const postPlaceholderImgSrc = "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.jpg"
 
 const posts = [
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-15", "This is bad", "Something something bad", true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-22", "This is ok", "Something something ok", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "This is good", "Something something good", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Bollocks", "Something something I'm a failure", true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Getting better", "Something something things are looking up", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "Freedom!", "Something something a new life begins", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29", "I love freedom", "Something something new life is going well", false)
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-15 21:42:00", "This is bad", "Something something bad", true),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-22 12:04:00", "This is ok", "Something something ok", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-26 14:59:00", "This is good", "Something something good", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-05 18:46:00", "Bollocks", "Something something I'm a failure", true),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-12 19:32:00", "Getting better", "Something something things are looking up", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-19 08:11:00", "Freedom!", "Something something a new life begins", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-15 09:25:00", "I love freedom", "Something something new life is going well", false)
 ]
 
 renderBlogPostList(posts, postDisplayCount)
@@ -172,9 +172,39 @@ function increasePostDisplayLimit(displayCount, incAmount, limit) {
 
 }
 
+function sortBlogPostListByDate(blogs, asc) {
+
+    let sortedList = []
+
+    function dateCompare(a, b) {
+
+        let compare
+
+        if (asc) {
+
+            compare = a.date - b.date
+
+        } else {
+
+            compare = b.date - a.date
+
+        }
+
+        return compare
+
+    }
+
+    sortedList = blogs.sort(dateCompare)
+
+    return sortedList
+
+}
+
 function renderBlogPostList(posts, limit) {
 
     const idList = getIdsFromGatheringElsByClass("blog-reel")
+
+    const sortedPosts = sortBlogPostListByDate(posts, true)
 
     for (let id in idList) {
 
@@ -183,7 +213,7 @@ function renderBlogPostList(posts, limit) {
         
         for (let i = 0; i < limit; i++) {
 
-            blogReelEl.appendChild(renderBlogPost(posts[i], idList[id]))
+            blogReelEl.appendChild(renderBlogPost(sortedPosts[i], idList[id]))
 
         }
 
@@ -247,7 +277,7 @@ function renderBlogPost(post, listId) {
     newPost.appendChild(postImg)
 
     const postDate = document.createElement("h4")
-    const formattedDate = post.date.toLocaleString('en-UK', { timeZoneName: 'short'})
+    const formattedDate = post.date.toLocaleString('en-UK', { dateStyle: 'full', hour12: true})
     postDate.textContent = formattedDate
     newPost.appendChild(postDate)
 
