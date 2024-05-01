@@ -18,7 +18,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 - [x] "View More" button to display more posts
 - [ ] Home page has latest blog up top, with image displayed as a splash background
 - [ ] Each blog post is clickable, leading to a page that displays that one in full screen
-- [ ] Blog post list is only loaded once, then used repeatedly
+- [x] Blog post list is only loaded once, then used repeatedly
 
 ### Navigation
 - [x] Hamburger menu that appears for portrait mode
