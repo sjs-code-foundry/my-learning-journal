@@ -273,30 +273,26 @@ function renderLatestSplashPost(postList) {
 
     const heroPostEl = document.getElementById("hero-post")
 
-    // Find latest post in postList
-
     const latestPost = postList.reduce(function(prev, current) {
 
         return (prev && prev.date > current.date) ? prev: current
 
     })
 
-    // Create splash image, date, title, first paragraph in that order
-    // Append each child to newSplash
     heroPostEl.style.backgroundImage = `url(${latestPost.imgUrl})`
 
     const postDate = document.createElement("h4")
     const formattedDate = latestPost.date.toLocaleString(dateOptions[0], dateOptions[1])
     postDate.textContent = formattedDate
-    heroPostEl.appendChild(postDate) // Doesn't show up - FIX!!!
+    heroPostEl.appendChild(postDate)
 
     const postTitle = document.createElement("h3")
     postTitle.textContent = latestPost.title
-    heroPostEl.appendChild(postTitle) // Doesn't show up - FIX!!!
+    heroPostEl.appendChild(postTitle)
 
     const postBody = document.createElement("p")
     postBody.textContent = latestPost.body
-    heroPostEl.appendChild(postBody) // Doesn't show up - FIX!!!
+    heroPostEl.appendChild(postBody)
 
 }
 

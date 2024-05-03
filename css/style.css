@@ -246,7 +246,7 @@ body {
 #hero-post h3, #hero-post h4, #hero-post p {
     font-size: 175%;
     color: white;
-    -webkit-text-stroke: 0.05rem var(--color-text); /* Number 4 displays weird - potential fix? */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /* ==== Recent Post Lists ==== */
