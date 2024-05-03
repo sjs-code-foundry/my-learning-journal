@@ -2,7 +2,7 @@
     Imports
    ============ */
 
-// Import things here
+import { v4 as uuidv4 } from "https://esm.sh/uuid";
 
 /* ================
     DOM Elements
@@ -11,6 +11,10 @@
 const tabMenuEl = document.getElementById("tab-menu")
 const tabMenuHomeBtn = document.getElementById("tab-menu-home")
 const tabMenuAboutBtn = document.getElementById("tab-menu-about")
+
+const heroPostEl = document.getElementById("hero-post")
+
+const allBlogPosts = document.getElementsByClassName("blog-post")
 
 const allSections = document.getElementsByClassName("section-content")
 
@@ -21,6 +25,7 @@ const allSections = document.getElementsByClassName("section-content")
 /* ==== Constants ==== */
 
 const dateOptions = ['en-UK', { dateStyle: 'full', hour12: true}]
+// Add expanded date options with time and time zone
 
 /* ==== Default Functions ==== */
 
@@ -38,13 +43,14 @@ const postPlaceholderImgSrc = "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.j
 
 const posts = [
     new PostTemplate(postPlaceholderImgSrc, "2024-01-15 21:42:00", "This is bad", "Something something bad", true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-22 12:04:00", "This is ok", "Something something ok", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-26 14:59:00", "This is good", "Something something good", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-05 18:46:00", "Bollocks", "Something something I'm a failure", true),
     new PostTemplate(postPlaceholderImgSrc, "2024-02-12 19:32:00", "Getting better", "Something something things are looking up", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-29 14:59:00", "This is good", "Something something good", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-26 09:25:00", "I love freedom", "Something something new life is going well", false),
+    new PostTemplate(postPlaceholderImgSrc, "2024-02-05 18:46:00", "Bollocks", "Something something I'm a failure", true),
     new PostTemplate(postPlaceholderImgSrc, "2024-02-19 08:11:00", "Freedom!", "Something something a new life begins", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-15 09:25:00", "I love freedom", "Something something new life is going well", false)
-]
+    new PostTemplate(postPlaceholderImgSrc, "2024-01-22 12:04:00", "This is ok", "Something something ok", false)
+]  // Deliberately out of order to test automated sorting functions
+
 
 const sortedPosts = sortBlogPostListByDate(posts, true)
 
@@ -58,6 +64,7 @@ renderBlogPostList(sortedPosts, postDisplayCount)
 
 function PostTemplate(img, date, title, body, relapseBool) {
 
+    this.uuid = uuidv4()
     this.imgUrl = img
     this.date = new Date(date)
     this.title = title
@@ -65,6 +72,8 @@ function PostTemplate(img, date, title, body, relapseBool) {
     this.relapse = relapseBool
 
     /*
+    uuid: unique identifier for selecting posts
+    imgUrl: Image for blog post
     date: Date object
     title: Title
     body: General sharing in blog post
@@ -76,6 +85,8 @@ function PostTemplate(img, date, title, body, relapseBool) {
 /* ====================
     Event Listeners
    ==================== */
+
+/* ==== General Page Functions ==== */
 
 document.addEventListener("click", function(e) {
 
@@ -98,6 +109,18 @@ tabMenuEl.addEventListener("click", function(e) {
     }
 
 })
+
+/* ==== Hero Post ==== */
+
+heroPostEl.addEventListener("click", function(e) {
+
+    const uuid = getUuidFromBlogPostEl(e.target)
+
+    openBlogPost(uuid)
+
+})
+
+/* ==== Blog Roll ==== */
 
 const blogDisplayBtnList = getIdsFromGatheringElsByClass("blog-display-btn")
 
@@ -161,6 +184,46 @@ function tabDefault(targetTab) {
 }
 
 /* ==== Blog Post Display ==== */
+
+/* == Opening Blog Post == */
+
+function openBlogPost(uuid) {
+
+    renderBlogPostPage(uuid)
+
+    tabSwitch(document.getElementById("sect-post"))
+
+}
+
+function getUuidFromBlogPostEl(targetEl) {
+
+    let uuid = ""
+
+    if (targetEl.parentNode.nodeName === "LI" || targetEl.parentNode.id === "hero-post") {
+
+        uuid = targetEl.parentNode.dataset.uuid
+
+    } else {
+
+        uuid = targetEl.dataset.uuid
+
+    }
+
+    return uuid
+
+}
+
+function renderBlogPostPage(postId) {
+
+    const selectedPost = posts.find(({ uuid }) => uuid === postId )
+
+    console.log(selectedPost)
+
+    // Render selectedPost in sect-post
+
+}
+
+/* == Blog Roll == */
 
 function increasePostDisplayLimit(displayCount, incAmount, limit) {
 
@@ -269,37 +332,11 @@ function getIdsFromGatheringElsByClass(className) {
 
 }
 
-function renderLatestSplashPost(postList) {
-
-    const heroPostEl = document.getElementById("hero-post")
-
-    const latestPost = postList.reduce(function(prev, current) {
-
-        return (prev && prev.date > current.date) ? prev: current
-
-    })
-
-    heroPostEl.style.backgroundImage = `url(${latestPost.imgUrl})`
-
-    const postDate = document.createElement("h4")
-    const formattedDate = latestPost.date.toLocaleString(dateOptions[0], dateOptions[1])
-    postDate.textContent = formattedDate
-    heroPostEl.appendChild(postDate)
-
-    const postTitle = document.createElement("h3")
-    postTitle.textContent = latestPost.title
-    heroPostEl.appendChild(postTitle)
-
-    const postBody = document.createElement("p")
-    postBody.textContent = latestPost.body
-    heroPostEl.appendChild(postBody)
-
-}
-
 function renderBlogPost(post, listId) {
 
     let newPost = document.createElement("li")
     newPost.setAttribute("class", "blog-post")
+    newPost.setAttribute("data-uuid", post.uuid)
 
     const postImg = document.createElement("img")
     postImg.setAttribute("src", post.imgUrl)
@@ -331,6 +368,42 @@ function renderBlogPost(post, listId) {
     postBody.textContent = post.body
     newPost.appendChild(postBody)
 
+    newPost.addEventListener("click", function(e) {
+
+        const uuid = getUuidFromBlogPostEl(e.target)
+
+        openBlogPost(uuid)
+
+    })
+
     return newPost
+
+}
+
+/* == Hero Post == */
+
+function renderLatestSplashPost(postList) {
+
+    const latestPost = postList.reduce(function(prev, current) {
+
+        return (prev && prev.date > current.date) ? prev: current
+
+    })
+
+    heroPostEl.style.backgroundImage = `url(${latestPost.imgUrl})`
+    heroPostEl.dataset.uuid = latestPost.uuid
+
+    const postDate = document.createElement("h4")
+    const formattedDate = latestPost.date.toLocaleString(dateOptions[0], dateOptions[1])
+    postDate.textContent = formattedDate
+    heroPostEl.appendChild(postDate)
+
+    const postTitle = document.createElement("h3")
+    postTitle.textContent = latestPost.title
+    heroPostEl.appendChild(postTitle)
+
+    const postBody = document.createElement("p")
+    postBody.textContent = latestPost.body
+    heroPostEl.appendChild(postBody)
 
 }
