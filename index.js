@@ -2,7 +2,7 @@
     Imports
    ============ */
 
-import { v4 as uuidv4 } from "https://esm.sh/uuid";
+import { posts as postContent } from "/posts.js"
 
 /* ================
     DOM Elements
@@ -10,11 +10,8 @@ import { v4 as uuidv4 } from "https://esm.sh/uuid";
 
 const tabMenuEl = document.getElementById("tab-menu")
 const tabMenuHomeBtn = document.getElementById("tab-menu-home")
-const tabMenuAboutBtn = document.getElementById("tab-menu-about")
 
 const heroPostEl = document.getElementById("hero-post")
-
-const allBlogPosts = document.getElementsByClassName("blog-post")
 
 const allSections = document.getElementsByClassName("section-content")
 
@@ -27,10 +24,6 @@ const allSections = document.getElementsByClassName("section-content")
 const dateOptions = ['en-UK', { dateStyle: 'full', hour12: true}]
 // Add expanded date options with time and time zone
 
-/* ==== Default Functions ==== */
-
-tabDefault(tabMenuHomeBtn.dataset.tab)
-
 /* ==== Post Placeholders ==== */
 
 /* == Post Placeholder Display Limiter  == */
@@ -39,48 +32,20 @@ let postDisplayCount = 3
 
 /* == Post Placeholder Data  == */
 
-const postPlaceholderImgSrc = "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.jpg"
+const sortedPosts = sortBlogPostListByDate(postContent, true)
 
-const posts = [
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-15 21:42:00", "This is bad", "Something something bad", true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-12 19:32:00", "Getting better", "Something something things are looking up", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29 14:59:00", "This is good", "Something something good", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-26 09:25:00", "I love freedom", "Something something new life is going well", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-05 18:46:00", "Bollocks", "Something something I'm a failure", true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-19 08:11:00", "Freedom!", "Something something a new life begins", false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-22 12:04:00", "This is ok", "Something something ok", false)
-]  // Deliberately out of order to test automated sorting functions
+/* ==== Default Functions ==== */
 
-
-const sortedPosts = sortBlogPostListByDate(posts, true)
+tabDefault(tabMenuHomeBtn.dataset.tab)
 
 renderLatestSplashPost(sortedPosts)
-
 renderBlogPostList(sortedPosts, postDisplayCount)
 
 /* ========================
     Object Constructors
    ======================== */
 
-function PostTemplate(img, date, title, body, relapseBool) {
-
-    this.uuid = uuidv4()
-    this.imgUrl = img
-    this.date = new Date(date)
-    this.title = title
-    this.body = body
-    this.relapse = relapseBool
-
-    /*
-    uuid: unique identifier for selecting posts
-    imgUrl: Image for blog post
-    date: Date object
-    title: Title
-    body: General sharing in blog post
-    relapse: whether or not the author relapsed recently
-    */
-
-}
+// Object Constructors Here
 
 /* ====================
     Event Listeners
@@ -130,16 +95,16 @@ for (let btn of blogDisplayBtnList) {
 
     dispBtn.addEventListener("click", function() {
 
-        postDisplayCount = increasePostDisplayLimit(postDisplayCount, 3, posts.length)
+        postDisplayCount = increasePostDisplayLimit(postDisplayCount, 3, postContent.length)
 
-        if (postDisplayCount >= posts.length) {
+        if (postDisplayCount >= postContent.length) {
 
             hideViewMorePostBtns()
 
         }
 
         clearBlogPostList()
-        renderBlogPostList(posts, postDisplayCount)
+        renderBlogPostList(postContent, postDisplayCount)
 
     })
 
@@ -215,9 +180,9 @@ function getUuidFromBlogPostEl(targetEl) {
 
 function renderBlogPostPage(postId) {
 
-    const selectedPost = posts.find(({ uuid }) => uuid === postId )
+    const selectedPost = postContent.find(({ uuid }) => uuid === postId )
 
-    console.log(selectedPost)
+    console.log(selectedPost.uuid)
 
     // Render selectedPost in sect-post
 
