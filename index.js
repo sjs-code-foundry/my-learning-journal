@@ -21,8 +21,8 @@ const allSections = document.getElementsByClassName("section-content")
 
 /* ==== Constants ==== */
 
-const dateOptions = ['en-UK', { dateStyle: 'full', hour12: true}]
-// Add expanded date options with time and time zone
+const dateOptions = ['en-UK', { dateStyle: 'full' }]
+const fullDateOptions = ['en-UK', { dateStyle: 'full', timeStyle: 'long'}]
 
 /* ==== Post Placeholders ==== */
 
@@ -182,9 +182,31 @@ function renderBlogPostPage(postId) {
 
     const selectedPost = postContent.find(({ uuid }) => uuid === postId )
 
-    console.log(selectedPost.uuid)
+    const postContainerEl = document.getElementById("selected-post")
 
-    // Render selectedPost in sect-post
+    postContainerEl.innerHTML = ""
+
+    // Render selectedPost
+    const postDate = document.createElement("h3") // Account for changes in heading size in new functions
+    const formattedDate = selectedPost.date.toLocaleString(fullDateOptions[0], fullDateOptions[1])
+    postDate.textContent = formattedDate
+    postContainerEl.appendChild(postDate)
+
+    const postTitle = document.createElement("h1") // Account for changes in heading size in new functions
+    postTitle.textContent = selectedPost.title
+    postContainerEl.appendChild(postTitle)
+
+    const postImg = document.createElement("img")
+    postImg.setAttribute("src", selectedPost.imgUrl)
+    postContainerEl.appendChild(postImg)
+
+    // Set Relapse Checkbox here (requires bespoke code)
+
+    const postBody = document.createElement("p")
+    postBody.textContent = selectedPost.body
+    postContainerEl.appendChild(postBody)
+
+    // Render date with options from fullDateOptions const
 
 }
 
@@ -372,3 +394,7 @@ function renderLatestSplashPost(postList) {
     heroPostEl.appendChild(postBody)
 
 }
+
+/* == Post Elements == */
+
+// Migrate identical functions across blog post constructors to this area

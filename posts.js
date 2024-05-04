@@ -76,11 +76,11 @@ const blogContent = [
 // Assemble the post data into objects for export
 
 export const posts = [
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-29 14:59:00", "This is good", blogContent[2], false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
-    new PostTemplate(postPlaceholderImgSrc, "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
-    new PostTemplate(postPlaceholderImgSrc, "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
+    new PostTemplate("", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
+    new PostTemplate("", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
+    new PostTemplate("", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
+    new PostTemplate("", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
+    new PostTemplate("", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
+    new PostTemplate("", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
+    new PostTemplate("", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
 ]  // Deliberately out of order to test automated sorting functions
