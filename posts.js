@@ -40,17 +40,53 @@ function PostTemplate(img, date, title, body, relapseBool) {
     Functions
    ============ */
 
-function setImgOrPlaceholder(src) {
+function setImgOrPlaceholder(source) {
 
-    if (src) {
+    const image = new Image()
+    image.src = source
 
-        return src
+    let fail = false
+
+    image.onload = function() {
+
+        console.log(image.src)
+
+    }
+
+    image.onerror = function(fail) {
+
+        console.log(`Image src=${image.src} failed to load`)
+
+        return fail = true // Does not pass through - FIX!!!
+
+    }
+
+    if (!fail) {
+
+        return image.src
 
     } else {
 
         return postPlaceholderImgSrc
 
     }
+
+    // fetch(source, { method: 'HEAD' })
+    //     .then(res => {
+
+    //         if (res.ok) {
+
+    //             console.log(`Image src=${source} exists.`)
+
+    //             return source
+
+    //         } else {
+
+    //             console.log(`Image not found.`)
+
+    //         }
+
+    //     }).catch(err => console.log('Error:', err))
 
 }
 
@@ -76,11 +112,11 @@ const blogContent = [
 // Assemble the post data into objects for export
 
 export const posts = [
-    new PostTemplate("", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
-    new PostTemplate("", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
-    new PostTemplate("", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
-    new PostTemplate("", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
-    new PostTemplate("", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
-    new PostTemplate("", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
-    new PostTemplate("", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
+    new PostTemplate("img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
+    new PostTemplate("img/blog-img/", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
+    new PostTemplate("img/blog-img/", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
+    new PostTemplate("img/blog-img/", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
+    new PostTemplate("img/blog-img/", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
+    new PostTemplate("img/blog-img/", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
+    new PostTemplate("img/blog-img/", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
 ]  // Deliberately out of order to test automated sorting functions

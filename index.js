@@ -4,6 +4,8 @@
 
 import { posts as postContent } from "/posts.js"
 
+console.log(postContent)
+
 /* ================
     DOM Elements
    ================ */
