@@ -1,6 +1,7 @@
 /* ================
     Root Variables
    ================ */
+
 :root {
     --app-width: 90vw;
     
@@ -8,6 +9,9 @@
     --menu-icon-thickness: 0.3em;
     --menu-icon-padding-vertical: 0.875;
     --menu-icon-padding-horizontal: 0.4167;
+
+    --credit-icon-width: 1.25em;
+    --credit-icon-thickness: 0.2em;
 
     --color-banners: #331E36;
     --color-banner-text: white;
@@ -40,11 +44,11 @@ body {
     font-family: "Source Sans 3", sans-serif;
 }
 
+/* ========
+    Header
+   ======== */
 
-
-/* ====================================
-    Hamburger Menu - Base Attributes
-   ==================================== */
+/* ==== Hamburger Menu - Base Attributes ==== */
 
 .header {
     display: flex;
@@ -106,9 +110,7 @@ body {
     transition: max-height: .2s ease-out;
 }
 
-/* ================================
-    Hamburger Menu - Default State
-   ================================ */
+/* ==== Hamburger Menu - Default State ==== */
 
 .header .menu-btn {
     display: none;
@@ -153,9 +155,7 @@ body {
     top: calc((var(--menu-icon-width) / 3) * -1);
 }
 
-/* ========================================
-    Hamburger Menu - Dropped-Down State
-   ======================================== */
+/* ==== Hamburger Menu - Dropped-Down State ==== */
 
 .header .menu {
     transition: max-height .2s ease-out;
@@ -182,9 +182,7 @@ body {
     top: 0;
 }
 
-/* ================================================
-    Hamburger Menu - Disabled (Landscape) State
-   ================================================ */
+/* ==== Hamburger Menu - Disabled (Landscape) State ==== */
 
 @media screen and (orientation: Landscape) {
 
@@ -277,4 +275,121 @@ body {
 .blog-reel li img {
     object-fit: cover;
     max-width: 100%;
+}
+
+/* ========
+    Footer 
+   ======== */
+
+footer {
+    display: block;
+}
+
+/* ==== Credit Menu - Base Attributes ==== */
+
+   .credit-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: fit-content;
+    z-index: 3;
+
+    border: 1px solid red;
+}
+
+.credit-div ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.credit-div .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height: .2s ease-out;
+}
+
+/* ==== Credit Menu - Default State ==== */
+
+.credit-div .credit-btn {
+    display: none;
+}
+
+.credit-div .credit-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding:
+        calc((var(--credit-icon-width) * var(--menu-icon-padding-vertical) + 0.5em))
+        calc(var(--credit-icon-width) * var(--menu-icon-padding-horizontal));
+    position: relative;
+    user-select: none;
+}
+
+.credit-div .credit-icon .navicon {
+    background: transparent;
+    display: block;
+    height: var(--credit-icon-thickness);
+    position: relative;
+    transition: background .2s ease-out;
+    width: var(--credit-icon-width);
+}
+
+.credit-div .credit-icon .navicon:before,
+.credit-div .credit-icon .navicon:after {
+    background: var(--color-banner-text);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.credit-div .credit-icon .navicon:before {
+    transform: translateY(-0.1em) rotate(-30deg);
+}
+
+.credit-div .credit-icon .navicon:after {
+    transform: translateY(0.1em) rotate(30deg);
+}
+
+.credit-div .credit-icon .navicon:before {
+    top: calc(var(--credit-icon-width) / 3);
+}
+
+.credit-div .credit-icon .navicon:after {
+    top: calc((var(--credit-icon-width) / 3) * -1);
+}
+
+   /* ==== Credit Menu - Dropped-Down State ==== */
+
+.credit-div .menu {
+    transition: max-height .2s ease-out;
+}
+
+.credit-div .credit-btn:checked ~ .menu {
+    max-height: 20em;
+}
+
+.credit-div .credit-btn:checked ~ .credit-icon .navicon {
+    background: transparent;
+}
+
+.credit-div .credit-btn:checked ~ .credit-icon .navicon:before {
+    transform: translateY(0.3em) rotate(30deg);
+}
+
+.credit-div .credit-btn:checked ~ .credit-icon .navicon:after {
+    transform: translateY(-0.3em) rotate(-30deg);
+}
+
+.credit-div .credit-btn:checked ~ .credit-icon:not(.steps) .navicon:before,
+.credit-div .credit-btn:checked ~ .credit-icon:not(.steps) .navicon:after {
+    top: 0;
 }
