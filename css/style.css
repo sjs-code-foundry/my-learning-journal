@@ -282,21 +282,37 @@ body {
    ======== */
 
 footer {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+
+    background-color: var(--color-banners);
+    color: var(--color-banner-text);
+}
+
+footer h3 {
+    margin: 2.3125rem auto 0.1875rem auto;
+}
+
+footer h4 {
+    margin: 0 auto 2.3125rem auto;
+
+    font-weight: normal;
 }
 
 /* ==== Credit Menu - Base Attributes ==== */
 
    .credit-div {
-    display: flex;
+    display: none; /* Set to flex to enable */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 
     width: fit-content;
     z-index: 3;
-
-    border: 1px solid red;
 }
 
 .credit-div ul {

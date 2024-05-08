@@ -7,7 +7,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 - [x] Format the blog post dates into UK standard of DD/MM/YYYY (give times too?)
 - [ ] Make hero post display presentable in line with Figma file
 - [ ] Make blog post displays presentable in line with Figma file
-- [ ] Create a footer with page title and copyright 2024
+- [x] Create a footer with page title and copyright 2024
 
 ### Content
 - [ ] Re-write blog posts to reflect a realistic recovery journey
