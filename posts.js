@@ -42,51 +42,42 @@ function PostTemplate(img, date, title, body, relapseBool) {
 
 function setImgOrPlaceholder(source) {
 
-    const image = new Image()
-    image.src = source
+    // const image = new Image()
+    // image.src = source
 
-    let fail = false
+    // let fail = false
 
-    image.onload = function() {
+    // image.onload = function() {
 
-        console.log(image.src)
+    //     // Not needed
+
+    // }
+
+    // image.onerror = function() {
+
+    //     console.log(`Image src=${image.src} failed to load`)
+
+    // }
+
+    // return image.src
+
+    let imgUrl = postPlaceholderImgSrc
+
+    const tests = [".jpg",".png",".svg"]
+
+    for (let t in tests) {
+
+        const imgFormatStr = source.substr(source.length - tests[t].length)
+
+        if (imgFormatStr === tests[t]) {
+
+            imgUrl = source
+
+        }
 
     }
 
-    image.onerror = function(fail) {
-
-        console.log(`Image src=${image.src} failed to load`)
-
-        return fail = true // Does not pass through - FIX!!!
-
-    }
-
-    if (!fail) {
-
-        return image.src
-
-    } else {
-
-        return postPlaceholderImgSrc
-
-    }
-
-    // fetch(source, { method: 'HEAD' })
-    //     .then(res => {
-
-    //         if (res.ok) {
-
-    //             console.log(`Image src=${source} exists.`)
-
-    //             return source
-
-    //         } else {
-
-    //             console.log(`Image not found.`)
-
-    //         }
-
-    //     }).catch(err => console.log('Error:', err))
+    return imgUrl
 
 }
 
