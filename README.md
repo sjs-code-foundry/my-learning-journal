@@ -11,7 +11,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 
 ### Content
 - [ ] Re-write blog posts to reflect a realistic recovery journey
-- [ ] Find appropriate stock images for each post, and credit them
+- [x] Find appropriate stock images for each post, and credit them
 - [ ] Find a placeholder avatar for Hiram (the author)
 - [ ] Write a succinct and engaging About Me page
 

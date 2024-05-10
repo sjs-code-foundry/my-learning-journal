@@ -42,25 +42,6 @@ function PostTemplate(img, date, title, body, relapseBool) {
 
 function setImgOrPlaceholder(source) {
 
-    // const image = new Image()
-    // image.src = source
-
-    // let fail = false
-
-    // image.onload = function() {
-
-    //     // Not needed
-
-    // }
-
-    // image.onerror = function() {
-
-    //     console.log(`Image src=${image.src} failed to load`)
-
-    // }
-
-    // return image.src
-
     let imgUrl = postPlaceholderImgSrc
 
     const tests = [".jpg",".png",".svg"]
@@ -104,10 +85,13 @@ const blogContent = [
 
 export const posts = [
     new PostTemplate("img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
-    new PostTemplate("img/blog-img/", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
-    new PostTemplate("img/blog-img/", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
-    new PostTemplate("img/blog-img/", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
-    new PostTemplate("img/blog-img/", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
-    new PostTemplate("img/blog-img/", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
-    new PostTemplate("img/blog-img/", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
-]  // Deliberately out of order to test automated sorting functions
+    new PostTemplate("img/blog-img/jungwoo-hong-cYUMaCqMYvI-unsplash.jpg", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
+    new PostTemplate("img/blog-img/j-williams-5lWfPoWH6EY-unsplash.jpg", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
+    new PostTemplate("img/blog-img/ian-dooley-hpTH5b6mo2s-unsplash.jpg", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
+    new PostTemplate("img/blog-img/conor-samuel-K5BFXOsFp7g-unsplash.jpg", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
+    new PostTemplate("img/blog-img/jason-hogan-YyFwUKzv5FM-unsplash.jpg", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
+    new PostTemplate("", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
+]
+
+// Posts deliberately out of order to test automated sorting functions
+// Image for post on 2024-01-22 intentionally left blank to test placeholder image function
