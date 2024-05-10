@@ -3,6 +3,7 @@
    ============ */
 
 import { posts as postContent } from "/posts.js"
+import showdown from "https://esm.sh/showdown"
 
 console.log(postContent)
 
@@ -204,9 +205,7 @@ function renderBlogPostPage(postId) {
 
     // Set Relapse Checkbox here (requires bespoke code)
 
-    const postBody = document.createElement("p")
-    postBody.textContent = selectedPost.body
-    postContainerEl.appendChild(postBody)
+    postContainerEl.innerHTML += bodyMdToHTML(selectedPost.body)
 
     // Render date with options from fullDateOptions const
 
@@ -400,3 +399,25 @@ function renderLatestSplashPost(postList) {
 /* == Post Elements == */
 
 // Migrate identical functions across blog post constructors to this area
+
+function bodyMdToHTML(markdown) {
+
+    const converter = new showdown.Converter({noHeaderId: true})
+
+    const splitMd = markdown.split(/\r?\n|\r|\n/g)
+
+    let convMdToHTML = ""
+
+    for (let line in splitMd) {
+
+        convMdToHTML += converter.makeHtml(splitMd[line].trim())
+
+    }
+
+    console.log(convMdToHTML)
+
+    return convMdToHTML
+
+}
+
+// Apply above to Hero and Post Lists, but only use the first paragraph

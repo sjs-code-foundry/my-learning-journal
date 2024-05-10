@@ -69,8 +69,17 @@ function setImgOrPlaceholder(source) {
 /* ==== Markdown List ==== */
 
 const blogContent = [
-    `2024-01-15`,
-    `2024-01-22`,
+    `
+    # Heading 1
+    ## Heading 2
+    ### Heading 3
+    #### Heading 4
+    ##### Heading 5
+    ###### Heading 6
+    Paragraph
+    - [ ] Checkbox List
+    `,
+    `# hello, markdown!`,
     `2024-01-29`,
     `2024-02-05`,
     `2024-02-12`,
