@@ -199,8 +199,6 @@ function renderBlogPostPage(postId) {
 
     postContainerEl.innerHTML += bodyMdToHTML(selectedPost.body)
 
-    // Render date with options from fullDateOptions const
-
 }
 
 /* == Blog Roll == */
@@ -324,18 +322,22 @@ function renderBlogPost(post, listId) {
 
     newPost.appendChild(createPostTitleEl("h3", post))
 
-    const postRelapseLabel = document.createElement("label")
-    postRelapseLabel.setAttribute("for", `rel-${listId}-${post.date}`)
-    postRelapseLabel.textContent = "Relapse since last post? "
-    newPost.appendChild(postRelapseLabel)
+    // const postRelapseLabel = document.createElement("label")
+    // postRelapseLabel.setAttribute("for", `rel-${listId}-${post.date}`)
+    // postRelapseLabel.textContent = "Relapse since last post? "
+    // newPost.appendChild(postRelapseLabel)
 
-    const postRelapse = document.createElement("input")
-    postRelapse.checked = post.relapse
-    postRelapse.setAttribute("type", "checkbox")
-    postRelapse.setAttribute("name", `rel-${listId}-${post.date}`)
-    postRelapse.setAttribute("id", `rel-${listId}-${post.date}`)
-    postRelapse.disabled = true
-    newPost.appendChild(postRelapse)
+    // const postRelapse = document.createElement("input")
+    // postRelapse.checked = post.relapse
+    // postRelapse.setAttribute("type", "checkbox")
+    // postRelapse.setAttribute("name", `rel-${listId}-${post.date}`)
+    // postRelapse.setAttribute("id", `rel-${listId}-${post.date}`)
+    // postRelapse.disabled = true
+    // newPost.appendChild(postRelapse)
+
+    console.log(post)
+
+    newPost.appendChild(createPostRelapseIndicatorEl(post, listId))
 
     newPost.innerHTML += firstParagraphOnlyFromMdToHTML(post.body)
 
@@ -346,6 +348,8 @@ function renderBlogPost(post, listId) {
         openBlogPost(uuid)
 
     })
+
+    console.log(newPost)
 
     return newPost
 
@@ -373,8 +377,6 @@ function renderLatestSplashPost(postList) {
 }
 
 /* == Post Elements == */
-
-// Migrate identical functions across blog post constructors to this area
 
 function createPostImgEl(post) {
 
@@ -408,7 +410,30 @@ function createPostTitleEl(elTag, post) {
 
 }
 
-// Post Relapse Indicator
+function createPostRelapseIndicatorEl(post, listId) {
+    
+    const relapseDiv = document.createElement("div")
+    relapseDiv.setAttribute("class", "relapse-counter")
+
+    const relapseLabelEl = document.createElement("label")
+    relapseLabelEl.setAttribute("for", `rel-${listId}-${post.uuid}`)
+    relapseLabelEl.textContent = "Relapse since last post? "
+    relapseDiv.appendChild(relapseLabelEl)
+
+    // value should be: post.relapse
+
+    const relapseCheckEl = document.createElement("input")
+    relapseCheckEl.value = true // true doesn't display - FIX!!!
+    relapseCheckEl.setAttribute("type", "checkbox")
+    relapseCheckEl.setAttribute("name", `rel-${listId}-${post.uuid}`)
+    relapseCheckEl.setAttribute("id", `rel-${listId}-${post.uuid}`)
+    relapseCheckEl.disabled = true
+
+    relapseDiv.appendChild(relapseCheckEl)
+
+    return relapseDiv
+
+}
 
 function bodyMdToHTML(markdown) {
 

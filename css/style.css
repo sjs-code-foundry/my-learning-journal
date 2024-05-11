@@ -225,6 +225,10 @@ body {
     margin-top: calc(var(--menu-icon-width) * 2);
 }
 
+.relapse-counter {
+    border: 1px solid red;
+}
+
 /* ==== Latest Splash Post ==== */
 
 #hero-post {
