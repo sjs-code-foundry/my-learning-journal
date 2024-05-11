@@ -84,7 +84,10 @@ const blogContent = [
     `2024-02-05`,
     `2024-02-12`,
     `2024-02-19`,
-    `2024-02-26`]
+    `# This is a primary heading
+    This is a paragraph full of stuff and things.  This should be displayed minus the heading above.  If that's the case, we've succeeded!
+    ## This is a secondary heading
+    This is another paragraph full of wonders and excitement.  This should not be displayed in the hero or the blog roll.  This is for those intrepid souls that wish to read in detail.`]
 
 /* ================
     Assembled Data

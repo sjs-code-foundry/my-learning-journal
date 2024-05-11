@@ -189,19 +189,11 @@ function renderBlogPostPage(postId) {
 
     postContainerEl.innerHTML = ""
 
-    // Render selectedPost
-    const postDate = document.createElement("h3") // Account for changes in heading size in new functions
-    const formattedDate = selectedPost.date.toLocaleString(fullDateOptions[0], fullDateOptions[1])
-    postDate.textContent = formattedDate
-    postContainerEl.appendChild(postDate)
+    postContainerEl.appendChild(createPostDateEl("h3", selectedPost, fullDateOptions))
 
-    const postTitle = document.createElement("h1") // Account for changes in heading size in new functions
-    postTitle.textContent = selectedPost.title
-    postContainerEl.appendChild(postTitle)
+    postContainerEl.appendChild(createPostTitleEl("h1", selectedPost))
 
-    const postImg = document.createElement("img")
-    postImg.setAttribute("src", selectedPost.imgUrl)
-    postContainerEl.appendChild(postImg)
+    postContainerEl.appendChild(createPostImgEl(selectedPost))
 
     // Set Relapse Checkbox here (requires bespoke code)
 
@@ -326,18 +318,11 @@ function renderBlogPost(post, listId) {
     newPost.setAttribute("class", "blog-post")
     newPost.setAttribute("data-uuid", post.uuid)
 
-    const postImg = document.createElement("img")
-    postImg.setAttribute("src", post.imgUrl)
-    newPost.appendChild(postImg)
+    newPost.appendChild(createPostImgEl(post))
 
-    const postDate = document.createElement("h4")
-    const formattedDate = post.date.toLocaleString(dateOptions[0], dateOptions[1])
-    postDate.textContent = formattedDate
-    newPost.appendChild(postDate)
+    newPost.appendChild(createPostDateEl("h4", post, dateOptions))
 
-    const postTitle = document.createElement("h3")
-    postTitle.textContent = post.title
-    newPost.appendChild(postTitle)
+    newPost.appendChild(createPostTitleEl("h3", post))
 
     const postRelapseLabel = document.createElement("label")
     postRelapseLabel.setAttribute("for", `rel-${listId}-${post.date}`)
@@ -352,9 +337,7 @@ function renderBlogPost(post, listId) {
     postRelapse.disabled = true
     newPost.appendChild(postRelapse)
 
-    const postBody = document.createElement("p")
-    postBody.textContent = post.body
-    newPost.appendChild(postBody)
+    newPost.innerHTML += firstParagraphOnlyFromMdToHTML(post.body)
 
     newPost.addEventListener("click", function(e) {
 
@@ -381,24 +364,51 @@ function renderLatestSplashPost(postList) {
     heroPostEl.style.backgroundImage = `url(${latestPost.imgUrl})`
     heroPostEl.dataset.uuid = latestPost.uuid
 
-    const postDate = document.createElement("h4")
-    const formattedDate = latestPost.date.toLocaleString(dateOptions[0], dateOptions[1])
-    postDate.textContent = formattedDate
-    heroPostEl.appendChild(postDate)
+    heroPostEl.appendChild(createPostDateEl("h4", latestPost, dateOptions))
 
-    const postTitle = document.createElement("h3")
-    postTitle.textContent = latestPost.title
-    heroPostEl.appendChild(postTitle)
+    heroPostEl.appendChild(createPostTitleEl("h3", latestPost))
 
-    const postBody = document.createElement("p")
-    postBody.textContent = latestPost.body
-    heroPostEl.appendChild(postBody)
+    heroPostEl.innerHTML += firstParagraphOnlyFromMdToHTML(latestPost.body)
 
 }
 
 /* == Post Elements == */
 
 // Migrate identical functions across blog post constructors to this area
+
+function createPostImgEl(post) {
+
+    const postImg = document.createElement("img")
+
+    postImg.setAttribute("src", post.imgUrl)
+
+    return postImg
+
+}
+
+function createPostDateEl(elTag, post, dateOptArr) {
+
+    const postDate = document.createElement(elTag)
+
+    const formattedDate = post.date.toLocaleString(dateOptArr[0], dateOptArr[1])
+
+    postDate.textContent = formattedDate
+
+    return postDate
+
+}
+
+function createPostTitleEl(elTag, post) {
+
+    const postTitle = document.createElement(elTag)
+
+    postTitle.textContent = post.title
+
+    return postTitle
+
+}
+
+// Post Relapse Indicator
 
 function bodyMdToHTML(markdown) {
 
@@ -420,4 +430,14 @@ function bodyMdToHTML(markdown) {
 
 }
 
-// Apply above to Hero and Post Lists, but only use the first paragraph
+function firstParagraphOnlyFromMdToHTML(markdown) {
+
+    const convMdToHTML = bodyMdToHTML(markdown)
+
+    // Find a way to strip away text that isn't in paragraph tags
+
+    // Strip away all paragraphs except the first
+
+    return convMdToHTML // Temporary, 
+
+}
