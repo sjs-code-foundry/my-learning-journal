@@ -5,8 +5,6 @@
 import { posts as postContent } from "/posts.js"
 import showdown from "https://esm.sh/showdown"
 
-console.log(postContent)
-
 /* ================
     DOM Elements
    ================ */
@@ -322,21 +320,6 @@ function renderBlogPost(post, listId) {
 
     newPost.appendChild(createPostTitleEl("h3", post))
 
-    // const postRelapseLabel = document.createElement("label")
-    // postRelapseLabel.setAttribute("for", `rel-${listId}-${post.date}`)
-    // postRelapseLabel.textContent = "Relapse since last post? "
-    // newPost.appendChild(postRelapseLabel)
-
-    // const postRelapse = document.createElement("input")
-    // postRelapse.checked = post.relapse
-    // postRelapse.setAttribute("type", "checkbox")
-    // postRelapse.setAttribute("name", `rel-${listId}-${post.date}`)
-    // postRelapse.setAttribute("id", `rel-${listId}-${post.date}`)
-    // postRelapse.disabled = true
-    // newPost.appendChild(postRelapse)
-
-    console.log(post)
-
     newPost.appendChild(createPostRelapseIndicatorEl(post, listId))
 
     newPost.innerHTML += firstParagraphOnlyFromMdToHTML(post.body)
@@ -348,8 +331,6 @@ function renderBlogPost(post, listId) {
         openBlogPost(uuid)
 
     })
-
-    console.log(newPost)
 
     return newPost
 
@@ -438,21 +419,35 @@ function createPostRelapseIndicatorEl(post, listId) {
 
 }
 
-function bodyMdToHTML(markdown) {
+function bodyMdToElList(markdown) {
 
     const converter = new showdown.Converter({noHeaderId: true})
 
     const splitMd = markdown.split(/\r?\n|\r|\n/g)
 
-    let convMdToHTML = ""
+    let convHtmlElList = []
 
     for (let line in splitMd) {
 
-        convMdToHTML += converter.makeHtml(splitMd[line].trim())
+        convHtmlElList.push(converter.makeHtml(splitMd[line].trim()))
 
     }
 
-    console.log(convMdToHTML)
+    return convHtmlElList
+
+}
+
+function bodyMdToHTML(markdown) {
+
+    const elList = bodyMdToElList(markdown)
+
+    let convMdToHTML = ""
+
+    for (let el in elList) {
+
+        convMdToHTML += elList[el]
+
+    }
 
     return convMdToHTML
 
@@ -460,12 +455,26 @@ function bodyMdToHTML(markdown) {
 
 function firstParagraphOnlyFromMdToHTML(markdown) {
 
-    const convMdToHTML = bodyMdToHTML(markdown)
+    const elList = bodyMdToElList(markdown)
 
-    // Find a way to strip away text that isn't in paragraph tags
+    let paraList = []
 
-    // Strip away all paragraphs except the first
+    for (let el in elList) {
 
-    return convMdToHTML // Temporary, 
+        if (elList[el].startsWith("<p>")) {
+
+            paraList.push(elList[el])
+
+        }
+
+    }
+
+    if (paraList.length === 0) {
+
+        paraList.push("<p>[No paragraph text entered]</p>")
+
+    }
+
+    return paraList[0]
 
 }
