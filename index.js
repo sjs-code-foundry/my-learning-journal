@@ -415,21 +415,24 @@ function createPostRelapseIndicatorEl(post, listId) {
     const relapseDiv = document.createElement("div")
     relapseDiv.setAttribute("class", "relapse-counter")
 
-    const relapseLabelEl = document.createElement("label")
-    relapseLabelEl.setAttribute("for", `rel-${listId}-${post.uuid}`)
-    relapseLabelEl.textContent = "Relapse since last post? "
-    relapseDiv.appendChild(relapseLabelEl)
+    const relapseTextEl = document.createElement("p")
+    relapseTextEl.textContent = "Sober since last post? "
+    relapseDiv.appendChild(relapseTextEl)
 
-    // value should be: post.relapse
+    const relapseStatusEl = document.createElement("img")
+    relapseStatusEl.setAttribute("class", "relapse-indicator")
 
-    const relapseCheckEl = document.createElement("input")
-    relapseCheckEl.value = true // true doesn't display - FIX!!!
-    relapseCheckEl.setAttribute("type", "checkbox")
-    relapseCheckEl.setAttribute("name", `rel-${listId}-${post.uuid}`)
-    relapseCheckEl.setAttribute("id", `rel-${listId}-${post.uuid}`)
-    relapseCheckEl.disabled = true
+    if (post.relapse) {
 
-    relapseDiv.appendChild(relapseCheckEl)
+        relapseStatusEl.setAttribute("src", "/img/ui-img/relapse.png")
+
+    } else {
+
+        relapseStatusEl.setAttribute("src", "/img/ui-img/sober.png")
+
+    }
+
+    relapseDiv.appendChild(relapseStatusEl)
 
     return relapseDiv
 
