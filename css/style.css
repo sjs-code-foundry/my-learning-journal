@@ -236,6 +236,7 @@ body {
 .relapse-indicator {
     width: 2rem;
     height: 2rem;
+    /* Edit these to respond to line height */
 
     margin-left: 0.5em; 
 }
