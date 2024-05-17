@@ -120,7 +120,7 @@ const blogContent = [
     ## How did the meeting go?
     The meeting with my support group went about as well as could be expected for a newcomer.
     There was someone to greet me and show me the way to their room, as it was unmarked and behind some buildings.  Once inside I got to work introducing myself and found how so many members had experiences that mirrored my own.  An there I was thinking that I was all alone!
-    ## An what about God?
+    ## And what about God?
     I've still got some doubts as to my faith in God, and I don't believe it is right to call myself a Christian when I have so many questions I need to answer.  Now where did I put that Bible?
     `]
 

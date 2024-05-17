@@ -270,6 +270,15 @@ body {
     max-width: 100%;
 }
 
+/* ==== About Me ==== */
+
+#avatar {
+    width: 10em;
+    height: 10em;
+
+    object-fit: cover;
+}
+
 /* ==== Recent Post Lists ==== */
 
 .blog-reel {
