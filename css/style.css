@@ -272,6 +272,13 @@ body {
 
 /* ==== About Me ==== */
 
+#about-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #avatar {
     width: 10em;
     height: 10em;
@@ -280,6 +287,18 @@ body {
     border-radius: 50%;
 
     object-fit: cover;
+}
+
+#about-intro {
+    width: 80%;
+}
+
+#about-detail {
+    width: 90%;
+
+    margin: 2em auto;
+
+    border: 1px solid red;
 }
 
 /* ==== Recent Post Lists ==== */

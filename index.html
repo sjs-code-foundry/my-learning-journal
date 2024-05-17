@@ -1,22 +1,38 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+        />
         <title>My Addiction Recovery Journal</title>
-        <link rel="stylesheet" href="css/style.css">
-        <meta name="viewport" content="width=640, user-scalable=1">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css" />
+        <meta name="viewport" content="width=640, user-scalable=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header id="header-area" class="header">
-            <img src="img/chat.png">
+            <img src="img/chat.png" />
             <h3>My addiction recovery journal</h3>
-            <input class="menu-btn" type="checkbox" id="menu-btn">
-            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"
+                ><span class="navicon"></span
+            ></label>
             <ul id="tab-menu" class="menu">
-                <li><button id="tab-menu-home" data-tab="sect-home">Home</button></li>
-                <li><button id="tab-menu-about"data-tab="sect-about">About Me</button></li>
+                <li>
+                    <button id="tab-menu-home" data-tab="sect-home">
+                        Home
+                    </button>
+                </li>
+                <li>
+                    <button id="tab-menu-about" data-tab="sect-about">
+                        About Me
+                    </button>
+                </li>
             </ul>
         </header>
         <div id="container">
@@ -28,17 +44,50 @@
                 <div class="blogs-preview">
                     <h2>Recent Posts</h2>
                     <ul id="blogs-home" class="blog-reel"></ul>
-                    <button id="blogs-inc-display-home" class="blog-display-btn">View more posts</button>
+                    <button
+                        id="blogs-inc-display-home"
+                        class="blog-display-btn"
+                    >
+                        View more posts
+                    </button>
                 </div>
             </section>
             <section id="sect-about" class="section-content">
                 <!-- About the Author -->
-                <img id="avatar" src="/img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg">
-                <h1>Hello there!  My name is Hiram and welcome to my addiction recovery journal.</h1>
+                <div id="about-header">
+                    <img
+                        id="avatar"
+                        src="/img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg"
+                    />
+                    <div id="about-intro">
+                        <h1>
+                            Hello there! My name is Hiram and welcome to my
+                            addiction recovery journal.
+                        </h1>
+                        <p>
+                            I don't know about you, but I'm tired of wasting so
+                            many hours looking at things I shouldn't be at the
+                            computer. Join me as I explore the depths of how I
+                            got to that point, what I can do about it, and
+                            finally how to achieve lasting freedom.
+                        </p>
+                    </div>
+                </div>
+                <div id="about-detail">
+                    <h2>How I stay committed to the path</h2>
+                    <p>Stuff.</p>
+                    <h2>How it all began</h2>
+                    <p>Stuph.</p>
+                </div>
                 <div class="blogs-preview">
                     <h2>Recent Posts</h2>
                     <ul id="blogs-about" class="blog-reel"></ul>
-                    <button id="blogs-inc-display-about" class="blog-display-btn">View more posts</button>
+                    <button
+                        id="blogs-inc-display-about"
+                        class="blog-display-btn"
+                    >
+                        View more posts
+                    </button>
                 </div>
             </section>
             <section id="sect-post" class="section-content">
@@ -48,7 +97,12 @@
                 <div class="blogs-preview">
                     <h2>Recent Posts</h2>
                     <ul id="blogs-post" class="blog-reel"></ul>
-                    <button id="blogs-inc-display-post" class="blog-display-btn">View more posts</button>
+                    <button
+                        id="blogs-inc-display-post"
+                        class="blog-display-btn"
+                    >
+                        View more posts
+                    </button>
                 </div>
             </section>
         </div>
@@ -57,20 +111,83 @@
             <h4>Copyright ©2024</h4>
             <div class="credit-div">
                 <!-- Find a new home for this menu -->
-                <input class="credit-btn" type="checkbox" id="credit-btn">
+                <input class="credit-btn" type="checkbox" id="credit-btn" />
                 <h5>Image Credits</h5>
-                <label class="credit-icon" for="credit-btn"><span class="navicon"></span></label>
+                <label class="credit-icon" for="credit-btn"
+                    ><span class="navicon"></span
+                ></label>
                 <ul id="credit-menu" class="menu">
-                    <li><a href="https://www.flaticon.com/free-icons/message" title="message icons">Message icons created by Becris - Flaticon</a></li>
-                    <li><a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Pixel perfect - Flaticon</a></li>
-                    <li><a href="https://www.flaticon.com/free-icons/foursquare-check-in" title="foursquare check in icons">Foursquare check (modified) in icons created by Pixel perfect - Flaticon</a></li>
-                    <li><a href="https://unsplash.com/photos/pens-near-white-paper-N3o-leQyFsI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash">Placeholder photo by Kelly Sikkema on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/a-woman-wrapped-in-a-blanket-in-a-dark-room-NEFPdToQ57k?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="message icons">Bad News photo by Caftos on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/several-white-arrows-pointing-upwards-on-a-wooden-wall-cYUMaCqMYvI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="message icons">Arrow Image by Jungwoo Hong on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/red-and-white-love-neon-light-signage-5lWfPoWH6EY?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="message icons">Good Times photo by J Williams on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/white-police-car-in-wall-K5BFXOsFp7g?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash" title="message icons">Crash image by Conor Samuel on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/man-opening-his-arms-wide-open-on-snow-covered-cliff-with-view-of-mountains-during-daytime-YyFwUKzv5FM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="message icons">Yosemite Freedom Image by Jason Hogan on Unsplash</a></li>
-                    <li><a href="https://unsplash.com/photos/assorted-hot-air-balloons-flying-at-high-altitude-during-daytime-hpTH5b6mo2s" title="message icons">Balloons image by Ian Dooley on Unsplash</a></li>
+                    <li>
+                        <a
+                            href="https://www.flaticon.com/free-icons/message"
+                            title="message icons"
+                            >Message icons created by Becris - Flaticon</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.flaticon.com/free-icons/delete"
+                            title="delete icons"
+                            >Delete icons created by Pixel perfect - Flaticon</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.flaticon.com/free-icons/foursquare-check-in"
+                            title="foursquare check in icons"
+                            >Foursquare check (modified) in icons created by
+                            Pixel perfect - Flaticon</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/pens-near-white-paper-N3o-leQyFsI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+                            >Placeholder photo by Kelly Sikkema on Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/a-woman-wrapped-in-a-blanket-in-a-dark-room-NEFPdToQ57k?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+                            title="message icons"
+                            >Bad News photo by Caftos on Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/several-white-arrows-pointing-upwards-on-a-wooden-wall-cYUMaCqMYvI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+                            title="message icons"
+                            >Arrow Image by Jungwoo Hong on Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/red-and-white-love-neon-light-signage-5lWfPoWH6EY?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+                            title="message icons"
+                            >Good Times photo by J Williams on Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/white-police-car-in-wall-K5BFXOsFp7g?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+                            title="message icons"
+                            >Crash image by Conor Samuel on Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/man-opening-his-arms-wide-open-on-snow-covered-cliff-with-view-of-mountains-during-daytime-YyFwUKzv5FM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                            title="message icons"
+                            >Yosemite Freedom Image by Jason Hogan on
+                            Unsplash</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://unsplash.com/photos/assorted-hot-air-balloons-flying-at-high-altitude-during-daytime-hpTH5b6mo2s"
+                            title="message icons"
+                            >Balloons image by Ian Dooley on Unsplash</a
+                        >
+                    </li>
                 </ul>
             </div>
         </footer>

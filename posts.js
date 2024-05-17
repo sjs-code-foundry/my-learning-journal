@@ -8,20 +8,20 @@ import { v4 as uuidv4 } from "https://esm.sh/uuid";
     Constants
    ============ */
 
-const postPlaceholderImgSrc = "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.jpg"
+const postPlaceholderImgSrc =
+    "img/blog-img/kelly-sikkema-N3o-leQyFsI-unsplash.jpg";
 
 /* ========================
     Object Constructors
    ======================== */
 
 function PostTemplate(img, date, title, body, relapseBool) {
-
-    this.uuid = uuidv4()
-    this.imgUrl = setImgOrPlaceholder(img)
-    this.date = new Date(date)
-    this.title = title
-    this.body = body
-    this.relapse = relapseBool
+    this.uuid = uuidv4();
+    this.imgUrl = setImgOrPlaceholder(img);
+    this.date = new Date(date);
+    this.title = title;
+    this.body = body;
+    this.relapse = relapseBool;
 
     /*
     uuid: unique identifier for selecting posts
@@ -31,7 +31,6 @@ function PostTemplate(img, date, title, body, relapseBool) {
     body: General sharing in blog post
     relapse: whether or not the author relapsed recently
     */
-
 }
 
 // Store the body text as markdown to be translated into HTML elements in index.js using showdown
@@ -41,25 +40,19 @@ function PostTemplate(img, date, title, body, relapseBool) {
    ============ */
 
 function setImgOrPlaceholder(source) {
+    let imgUrl = postPlaceholderImgSrc;
 
-    let imgUrl = postPlaceholderImgSrc
-
-    const tests = [".jpg",".png",".svg"]
+    const tests = [".jpg", ".png", ".svg"];
 
     for (let t in tests) {
-
-        const imgFormatStr = source.substr(source.length - tests[t].length)
+        const imgFormatStr = source.substr(source.length - tests[t].length);
 
         if (imgFormatStr === tests[t]) {
-
-            imgUrl = source
-
+            imgUrl = source;
         }
-
     }
 
-    return imgUrl
-
+    return imgUrl;
 }
 
 /* ========================
@@ -122,7 +115,8 @@ const blogContent = [
     There was someone to greet me and show me the way to their room, as it was unmarked and behind some buildings.  Once inside I got to work introducing myself and found how so many members had experiences that mirrored my own.  An there I was thinking that I was all alone!
     ## And what about God?
     I've still got some doubts as to my faith in God, and I don't believe it is right to call myself a Christian when I have so many questions I need to answer.  Now where did I put that Bible?
-    `]
+    `,
+];
 
 /* ================
     Assembled Data
@@ -131,14 +125,56 @@ const blogContent = [
 // Assemble the post data into objects for export
 
 export const posts = [
-    new PostTemplate("img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
-    new PostTemplate("img/blog-img/jungwoo-hong-cYUMaCqMYvI-unsplash.jpg", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
-    new PostTemplate("img/blog-img/j-williams-5lWfPoWH6EY-unsplash.jpg", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
-    new PostTemplate("img/blog-img/ian-dooley-hpTH5b6mo2s-unsplash.jpg", "2024-02-26 09:25:00", "Bright days are ahead", blogContent[6], false),
-    new PostTemplate("img/blog-img/conor-samuel-K5BFXOsFp7g-unsplash.jpg", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
-    new PostTemplate("img/blog-img/jason-hogan-YyFwUKzv5FM-unsplash.jpg", "2024-02-19 08:11:00", "I broke free!", blogContent[5], false),
-    new PostTemplate("", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
-]
+    new PostTemplate(
+        "img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg",
+        "2024-01-15 21:42:00",
+        "This is bad",
+        blogContent[0],
+        true
+    ),
+    new PostTemplate(
+        "img/blog-img/jungwoo-hong-cYUMaCqMYvI-unsplash.jpg",
+        "2024-02-12 19:32:00",
+        "Getting better",
+        blogContent[4],
+        false
+    ),
+    new PostTemplate(
+        "img/blog-img/j-williams-5lWfPoWH6EY-unsplash.jpg",
+        "2024-01-29 14:59:00",
+        "This is good",
+        blogContent[2],
+        false
+    ),
+    new PostTemplate(
+        "img/blog-img/ian-dooley-hpTH5b6mo2s-unsplash.jpg",
+        "2024-02-26 09:25:00",
+        "Bright days are ahead",
+        blogContent[6],
+        false
+    ),
+    new PostTemplate(
+        "img/blog-img/conor-samuel-K5BFXOsFp7g-unsplash.jpg",
+        "2024-02-05 18:46:00",
+        "Bollocks",
+        blogContent[3],
+        true
+    ),
+    new PostTemplate(
+        "img/blog-img/jason-hogan-YyFwUKzv5FM-unsplash.jpg",
+        "2024-02-19 08:11:00",
+        "I broke free!",
+        blogContent[5],
+        false
+    ),
+    new PostTemplate(
+        "",
+        "2024-01-22 12:04:00",
+        "This is ok",
+        blogContent[1],
+        false
+    ),
+];
 
 // Posts deliberately out of order to test automated sorting functions
 // Image for post on 2024-01-22 intentionally left blank to test placeholder image function
