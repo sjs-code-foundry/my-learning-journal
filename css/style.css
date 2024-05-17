@@ -276,6 +276,9 @@ body {
     width: 10em;
     height: 10em;
 
+    border: 0.25em solid var(--color-text);
+    border-radius: 50%;
+
     object-fit: cover;
 }
 
