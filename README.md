@@ -10,7 +10,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 - [x] Create a footer with page title and copyright 2024
 
 ### Content
-- [ ] Re-write blog posts to reflect a realistic recovery journey
+- [x] Re-write blog posts to reflect a realistic recovery journey
 - [x] Find appropriate stock images for each post, and credit them
 - [ ] Find a placeholder avatar for Hiram (the author)
 - [ ] Write a succinct and engaging About Me page

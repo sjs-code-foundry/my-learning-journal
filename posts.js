@@ -109,11 +109,20 @@ const blogContent = [
     ## Turning to God
     Like I said, this feels very strange to me as a born-and-raised atheist, but I've noticed that when I do things that glorify God I find an inner strength that defies explanation; it's like I'm steered away from doom by some unseen loving hand.  I definitely need to investigate this further.
     `,
-    `2024-02-19`,
-    `# This is a primary heading
-    This is a paragraph full of stuff and things.  This should be displayed minus the heading above.  If that's the case, we've succeeded!
-    ## This is a secondary heading
-    This is another paragraph full of wonders and excitement.  This should not be displayed in the hero or the blog roll.  This is for those intrepid souls that wish to read in detail.`]
+    `
+    The Lord truly works in mysterious ways!  I was on the verge of acting out, about to go from middle-circling (doing things that precede acting out, like doom-scrolling on Tiktok) to fully acting out, but then I fell down and prayed.  I was genuinely asking God for his wisdom and grace, make no mistake about it.
+    Then something remarkable happened.  It was like my usual program was interrupted and replaced with one that lead me to salvation!
+    ## The New Program
+    I've had a feeling that I should seek out support groups for some time, as I've come to notice a pattern; every time I try to conquer the addiction on my own, I feel like I'm in control for the first few days, then I get complacent, then I drift towards the material and relapse all over again.  It's a pattern so familiar it almost hurts at this point.
+    But this time that cycle was interrupted by a calling to make a different, better choice.  I was divinely inspired to pull the trigger, and now I have a meeting with a local support group this Friday!
+    `,
+    `
+    ## How did the meeting go?
+    The meeting with my support group went about as well as could be expected for a newcomer.
+    There was someone to greet me and show me the way to their room, as it was unmarked and behind some buildings.  Once inside I got to work introducing myself and found how so many members had experiences that mirrored my own.  An there I was thinking that I was all alone!
+    ## An what about God?
+    I've still got some doubts as to my faith in God, and I don't believe it is right to call myself a Christian when I have so many questions I need to answer.  Now where did I put that Bible?
+    `]
 
 /* ================
     Assembled Data
@@ -125,9 +134,9 @@ export const posts = [
     new PostTemplate("img/blog-img/caftos-NEFPdToQ57k-unsplash.jpg", "2024-01-15 21:42:00", "This is bad", blogContent[0], true),
     new PostTemplate("img/blog-img/jungwoo-hong-cYUMaCqMYvI-unsplash.jpg", "2024-02-12 19:32:00", "Getting better", blogContent[4], false),
     new PostTemplate("img/blog-img/j-williams-5lWfPoWH6EY-unsplash.jpg", "2024-01-29 14:59:00", "This is good", blogContent[2], false),
-    new PostTemplate("img/blog-img/ian-dooley-hpTH5b6mo2s-unsplash.jpg", "2024-02-26 09:25:00", "I love freedom", blogContent[6], false),
+    new PostTemplate("img/blog-img/ian-dooley-hpTH5b6mo2s-unsplash.jpg", "2024-02-26 09:25:00", "Bright days are ahead", blogContent[6], false),
     new PostTemplate("img/blog-img/conor-samuel-K5BFXOsFp7g-unsplash.jpg", "2024-02-05 18:46:00", "Bollocks", blogContent[3], true),
-    new PostTemplate("img/blog-img/jason-hogan-YyFwUKzv5FM-unsplash.jpg", "2024-02-19 08:11:00", "Freedom!", blogContent[5], false),
+    new PostTemplate("img/blog-img/jason-hogan-YyFwUKzv5FM-unsplash.jpg", "2024-02-19 08:11:00", "I broke free!", blogContent[5], false),
     new PostTemplate("", "2024-01-22 12:04:00", "This is ok", blogContent[1], false)
 ]
 
