@@ -299,19 +299,13 @@ body {
 
 .blog-reel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-template-columns: repeat(auto-fit, 1fr);
     grid-gap: 1em;
 
     list-style-type: none;
 
     padding: 0;
 }
-
-/* .blog-post {
-    width: auto;
-
-    border: 1px solid green;
-} */
 
 .blog-reel li img {
     object-fit: cover;
