@@ -31,7 +31,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 ### Navigation
 
 -   [x] Hamburger menu that appears for portrait mode
--   [ ] Implement hamburger menu for smaller landscape screens
+-   [x] Implement hamburger menu for smaller landscape screens
 
 ### Responsiveness
 
