@@ -282,7 +282,7 @@ function renderLatestSplashPost(postList) {
 
     heroPostEl.appendChild(createPostDateEl("h4", latestPost, dateOptions));
 
-    heroPostEl.appendChild(createPostTitleEl("h3", latestPost));
+    heroPostEl.appendChild(createPostTitleEl("h1", latestPost));
 
     heroPostEl.innerHTML += firstParagraphOnlyFromMdToHTML(latestPost.body);
 }
@@ -324,6 +324,7 @@ function createPostRelapseIndicatorEl(post, listId) {
 
     const relapseTextEl = document.createElement("p");
     relapseTextEl.textContent = "Sober since last post? ";
+    relapseTextEl.setAttribute("class", "relapse-question");
     relapseDiv.appendChild(relapseTextEl);
 
     const relapseStatusEl = document.createElement("img");

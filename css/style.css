@@ -10,6 +10,8 @@
     --menu-icon-padding-vertical: 0.875;
     --menu-icon-padding-horizontal: 0.4167;
 
+    --relapse-counter-dims: 2rem;
+
     --credit-icon-width: 1.25em;
     --credit-icon-thickness: 0.2em;
 
@@ -38,14 +40,20 @@ html {
 
 html, 
 body {
-    margin: 0 auto;
-    padding: 0;
-    width: var(--app-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     background-color: var(--color-primary);
     color: var(--color-text);
 
     font-family: "Source Sans 3", sans-serif;
+}
+
+#container {
+    margin: 0 auto;
+    padding: 0;
+    width: var(--app-width);
 }
 
 /* ========
@@ -225,17 +233,20 @@ body {
 
 .section-content {
     display: none;
-
-    margin-top: calc(var(--menu-icon-width) * 2);
 }
 
 .relapse-counter {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 3rem;
 }
 
-.relapse-indicator {
+.relapse-counter .relapse-question {
+    margin: 0;
+}
+
+.relapse-counter .relapse-indicator {
     width: 2rem;
     height: 2rem;
     /* Edit these to respond to line height */
@@ -248,8 +259,9 @@ body {
 #hero-post {
     background-size: cover;
 
+    margin-top: calc(var(--menu-icon-width) * 2);
     width: var(--app-width);
-    height: 400px;
+    height: auto;
 
     overflow: hidden;
 }
@@ -259,10 +271,24 @@ body {
     max-width: 100%;
 }
 
-#hero-post h3, #hero-post h4, #hero-post p {
-    font-size: 175%;
+#hero-post h4 {
+    text-transform: uppercase;
+    margin-top: 5.5em;
+    margin-bottom: 0;
+}
+
+#hero-post p {
+    margin-top: 0;
+    margin-bottom: 1.5625em;
+}
+
+#hero-post h1 {
+    margin: 0.25em auto;
+}
+
+#hero-post h1, #hero-post h4, #hero-post p {
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: -0.0625em -0.0625em 0 #000, 0.0625em -0.0625em 0 #000, -0.0625em 0.0625em 0 #000, 0.0625em 0.0625em 0 #000;
 }
 
 /* ==== Selected Post ==== */
@@ -282,8 +308,11 @@ body {
 }
 
 #avatar {
-    width: 10em;
-    height: 10em;
+    width: 11.375em;
+    height: 11.375em;
+
+    margin-left: 0;
+    margin-right: auto;
 
     border: 0.25em solid var(--color-text);
     border-radius: 50%;
@@ -300,7 +329,7 @@ body {
 .blog-reel {
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
-    grid-gap: 1em;
+    grid-gap: 2.5625em;
 
     list-style-type: none;
 
@@ -309,7 +338,23 @@ body {
 
 .blog-reel li img {
     object-fit: cover;
-    max-width: 100%;
+    width: var(--app-width);
+    height: calc(var(--app-width) / 1.612);
+}
+
+.blog-reel li h4 {
+    margin: 1em auto 0 auto;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+.blog-reel li h3 {
+    margin: 0.375em auto;
+    font-size: 1.5rem;
+}
+
+.blog-reel li p {
+    margin: 0.5625em auto 0 auto;
 }
 
 /* ========
