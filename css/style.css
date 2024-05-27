@@ -195,6 +195,24 @@ body {
     top: 0;
 }
 
+/* ==== Hamburger Menu - Landscape State ==== */
+
+@media screen and (orientation: landscape) {
+    :root {
+        --menu-icon-width: 1.5em;
+        --menu-icon-thickness: 0.15em;
+    }
+
+    .header img {
+        width: 0.8em;
+        height: 0.8em;
+    }
+
+    .header li button {
+        font-size: 120%;
+    }
+}
+
 /* ==== Hamburger Menu - Disabled (Landscape) State ==== */
 
 @media screen and (min-width: 1601px) and (orientation: Landscape) {
