@@ -324,6 +324,28 @@ body {
     text-shadow: -0.0625em -0.0625em 0 #000, 0.0625em -0.0625em 0 #000, -0.0625em 0.0625em 0 #000, 0.0625em 0.0625em 0 #000;
 }
 
+@media screen and (min-width: 1601px) and (orientation: Landscape) {
+    #hero-post {
+        display: flex;
+        flex-direction: column;
+        height: 20em;
+        font-size: 150%;
+    }
+
+    #hero-post h4 {
+        margin-top: auto;
+    }
+
+    #hero-post h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #hero-post p {
+        margin-bottom: 3.75em;
+    }
+}
+
 /* ==== Selected Post ==== */
 
 #sect-post {

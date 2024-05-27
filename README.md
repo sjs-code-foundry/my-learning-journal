@@ -37,7 +37,7 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 
 -   [x] All page units expressed in relative units
 -   [x] Mobile-first design philosophy
--   [ ] Media queries for larger screens
+-   [ ] Media queries for larger screens (refactor into single ones with categories)
 -   [x] Viewport meta tag ensures page loads zoomed out
 -   [x] Recent Posts roll sized appropriately for small screens
 
