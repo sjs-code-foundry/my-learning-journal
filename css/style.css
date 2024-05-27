@@ -4,11 +4,13 @@
 
 :root {
     --app-width: 90vw;
+    --app-margin: calc((100vw - var(--app-width)) / 2);
     
     --menu-icon-width: 3em;
     --menu-icon-thickness: 0.3em;
     --menu-icon-padding-vertical: 0.875;
     --menu-icon-padding-horizontal: 0.4167;
+    --menu-bar-padding: calc(var(--menu-icon-width) * 2);
 
     --relapse-counter-dims: 2rem;
 
@@ -53,7 +55,6 @@ body {
 #container {
     margin: 0 auto;
     padding: 0;
-    width: var(--app-width);
 }
 
 /* ========
@@ -259,8 +260,10 @@ body {
 #hero-post {
     background-size: cover;
 
-    margin-top: calc(var(--menu-icon-width) * 2);
-    width: var(--app-width);
+    margin-bottom: 2.125em;
+    padding-top: var(--menu-bar-padding);
+    padding-left: var(--app-margin);
+    padding-right: var(--app-margin);
     height: auto;
 
     overflow: hidden;
@@ -293,12 +296,28 @@ body {
 
 /* ==== Selected Post ==== */
 
+#sect-post {
+    margin-top: var(--menu-bar-padding);
+}
+
+#selected-post {
+    margin: 0 var(--app-margin);
+    padding-top: 2em;
+}
+
 #selected-post img {
     object-fit: cover;
     max-width: 100%;
 }
 
 /* ==== About Me ==== */
+
+#sect-about {
+    width: var(--app-width);
+    margin-top: var(--menu-bar-padding);
+    margin-left: var(--app-margin);
+    margin-right: var(--app-margin);
+}
 
 #about-header {
     display: flex;
@@ -311,6 +330,8 @@ body {
     width: 11.375em;
     height: 11.375em;
 
+    
+    margin-top: 1.625em;
     margin-left: 0;
     margin-right: auto;
 
@@ -324,15 +345,24 @@ body {
     margin: 2em auto;
 }
 
+#sect-about .blogs-preview .blog-reel {
+    margin: 0;
+}
+
 /* ==== Recent Post Lists ==== */
+
+.blog-reel-header {
+    text-align: center;
+}
 
 .blog-reel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
     grid-gap: 2.5625em;
 
     list-style-type: none;
 
+    align-items: center;
+    margin: 0 var(--app-margin);
     padding: 0;
 }
 
@@ -355,6 +385,20 @@ body {
 
 .blog-reel li p {
     margin: 0.5625em auto 0 auto;
+}
+
+.blog-display-btn {
+    display: block;
+
+    width: var(--app-width);
+    height: 3em;
+    margin: 0.6875em auto 1.6875em auto;
+
+    background-color: var(--color-primary);
+    border: none;
+
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* ========

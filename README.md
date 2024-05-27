@@ -7,8 +7,8 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 ### Aesthetics
 
 -   [x] Format the blog post dates into UK standard of DD/MM/YYYY (give times too?)
--   [ ] Make hero post display presentable in line with Figma file
--   [ ] Make blog post displays presentable in line with Figma file
+-   [x] Make hero post display presentable in line with Figma file
+-   [x] Make blog post displays presentable in line with Figma file
 -   [x] Create a footer with page title and copyright 2024
 
 ### Content
@@ -35,11 +35,11 @@ A Scrimba solo project for a responsive blog website, designed with a mobile-fir
 
 ### Responsiveness
 
--   [ ] All page units expressed in relative units
--   [ ] Mobile-first design philosophy
+-   [x] All page units expressed in relative units
+-   [x] Mobile-first design philosophy
 -   [ ] Media queries for larger screens
 -   [x] Viewport meta tag ensures page loads zoomed out
--   [ ] Recent Posts roll sized appropriately for small screens
+-   [x] Recent Posts roll sized appropriately for small screens
 
 ### User Experience
 

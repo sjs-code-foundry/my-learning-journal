@@ -228,8 +228,9 @@ function hideViewMorePostBtns() {
     for (let btn of blogDisplayBtnList) {
         const dispBtn = document.getElementById(btn);
 
-        dispBtn.style.display = "none";
-    } // Duplicate form field id in the same form - Get to the bottom of this
+        dispBtn.disabled = true;
+        dispBtn.style.color = "var(--color-primary)";
+    }
 }
 
 function getIdsFromGatheringElsByClass(className) {
