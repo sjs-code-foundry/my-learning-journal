@@ -12,6 +12,9 @@
     --menu-icon-padding-horizontal: 0.4167;
     --menu-bar-padding: calc(var(--menu-icon-width) * 2);
 
+    --menu-bar-desktop-height: 5.1875em;
+    --menu-bar-desktop-padding: calc(var(--menu-bar-desktop-height) * 1.1);
+
     --relapse-counter-dims: 2rem;
 
     --credit-icon-width: 1.25em;
@@ -219,7 +222,7 @@ body {
 @media screen and (min-width: 1601px) and (orientation: Landscape) {
 
     .header {
-        height: 5.1875em;
+        height: var(--menu-bar-desktop-height);
     }
     
     .header img {
@@ -362,6 +365,12 @@ body {
     max-width: 100%;
 }
 
+@media screen and (min-width: 1601px) and (orientation: Landscape) {
+    #sect-post {
+        margin-top: var(--menu-bar-desktop-padding);
+    }
+}
+
 /* ==== About Me ==== */
 
 #sect-about {
@@ -399,6 +408,15 @@ body {
 
 #sect-about .blogs-preview .blog-reel {
     margin: 0;
+}
+
+@media screen and (min-width: 1601px) and (orientation: Landscape) {
+    #sect-about {
+        margin-top: var(--menu-bar-desktop-padding);
+
+        /* font-size: 150%; */
+        /* ^^^ Adjust this and selected post font size to align with Figma file */
+    }
 }
 
 /* ==== Recent Post Lists ==== */
@@ -451,6 +469,24 @@ body {
 
     font-weight: bold;
     text-decoration: underline;
+}
+
+@media screen and (min-width: 1601px) and (orientation: Landscape) {
+    .blog-reel {
+        grid-template-columns: auto auto auto;
+        grid-auto-rows: auto;
+
+        align-items: start;
+    }
+
+    .blog-reel li {
+        margin-top: 0;
+    }
+
+    .blog-reel li img {
+        width: 100%;
+        height: 15em;
+    }
 }
 
 /* ========
