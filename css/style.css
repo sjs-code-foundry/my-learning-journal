@@ -5,7 +5,7 @@
 :root {
     --app-width: 90vw;
     --app-margin: calc((100vw - var(--app-width)) / 2);
-    
+
     --menu-icon-width: 3em;
     --menu-icon-thickness: 0.3em;
     --menu-icon-padding-vertical: 0.875;
@@ -20,22 +20,24 @@
     --credit-icon-width: 1.25em;
     --credit-icon-thickness: 0.2em;
 
-    --color-banners: #331E36;
+    --color-banners: #331e36;
     --color-banner-text: white;
-    --color-text: #0D0A0B;
-    --color-primary: #7FB7BE;
-    --color-secondary: #FED766;
-    --color-accent: #0E6BA8;
+    --color-text: #0d0a0b;
+    --color-primary: #7fb7be;
+    --color-secondary: #fed766;
+    --color-accent: #0e6ba8;
 
-    --color-success: #3F7D20;
-    --color-error: #C1292E;
+    --color-success: #3f7d20;
+    --color-error: #c1292e;
 }
 
 /* ====================
     Common Formatting
    ==================== */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -43,7 +45,7 @@ html {
     font-size: 150%;
 }
 
-html, 
+html,
 body {
     display: flex;
     flex-direction: column;
@@ -123,7 +125,7 @@ body {
 .header .menu {
     clear: both;
     max-height: 0;
-    transition: max-height: .2s ease-out;
+    transition: max-height 0.2s ease-out;
 }
 
 /* ==== Hamburger Menu - Default State ==== */
@@ -136,8 +138,7 @@ body {
     cursor: pointer;
     display: inline-block;
     float: right;
-    padding:
-        calc(var(--menu-icon-width) * var(--menu-icon-padding-vertical))
+    padding: calc(var(--menu-icon-width) * var(--menu-icon-padding-vertical))
         calc(var(--menu-icon-width) * var(--menu-icon-padding-horizontal));
     position: relative;
     user-select: none;
@@ -148,18 +149,18 @@ body {
     display: block;
     height: var(--menu-icon-thickness);
     position: relative;
-    transition: background .2s ease-out;
+    transition: background 0.2s ease-out;
     width: var(--menu-icon-width);
 }
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
     background: var(--color-banner-text);
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     position: absolute;
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
     width: 100%;
 }
 
@@ -174,7 +175,7 @@ body {
 /* ==== Hamburger Menu - Dropped-Down State ==== */
 
 .header .menu {
-    transition: max-height .2s ease-out;
+    transition: max-height 0.2s ease-out;
 }
 
 .header .menu-btn:checked ~ .menu {
@@ -240,7 +241,7 @@ body {
     height: 2rem;
     /* Edit these to respond to line height */
 
-    margin-left: 0.5em; 
+    margin-left: 0.5em;
 }
 
 /* ==== Latest Splash Post ==== */
@@ -277,9 +278,12 @@ body {
     margin: 0.25em auto;
 }
 
-#hero-post h1, #hero-post h4, #hero-post p {
+#hero-post h1,
+#hero-post h4,
+#hero-post p {
     color: white;
-    text-shadow: -0.0625em -0.0625em 0 #000, 0.0625em -0.0625em 0 #000, -0.0625em 0.0625em 0 #000, 0.0625em 0.0625em 0 #000;
+    text-shadow: -0.0625em -0.0625em 0 #000, 0.0625em -0.0625em 0 #000,
+        -0.0625em 0.0625em 0 #000, 0.0625em 0.0625em 0 #000;
 }
 
 /* ==== Selected Post ==== */
@@ -318,7 +322,6 @@ body {
     width: 11.375em;
     height: 11.375em;
 
-    
     margin-top: 1.625em;
     margin-left: 0;
     margin-right: auto;
@@ -429,38 +432,38 @@ footer h4 {
     .header {
         height: var(--menu-bar-desktop-height);
     }
-    
+
     .header img {
         margin-left: var(--app-margin);
         margin-right: 0;
     }
-    
+
     .header .menu-icon {
         display: none;
     }
-    
+
     .header .menu {
         display: flex;
         flex-direction: row;
-    
+
         max-height: 100%;
-    
+
         margin: 0 calc(var(--app-margin) - 1.5rem) 0 0;
     }
-    
+
     .header li button {
         padding-left: 1em;
         padding-right: 1em;
-    
+
         width: 100%;
         height: 100%;
-    
+
         background-color: var(--color-banners);
         color: var(--color-banner-text);
-    
+
         border: none;
     }
-    
+
     .header li button:hover {
         text-decoration: underline;
     }
@@ -468,14 +471,22 @@ footer h4 {
     /* ========================
         Container & Content
        ========================*/
-    
+
+    #sect-home {
+        font-size: 120%;
+    }
+
+    .blog-reel-header {
+        font-size: 175%;
+    }
+
     /* ==== Latest Splash Post ==== */
-    
+
     #hero-post {
         display: flex;
         flex-direction: column;
         height: 20em;
-        font-size: 150%;
+        font-size: 125%;
     }
 
     #hero-post h4 {
@@ -495,6 +506,17 @@ footer h4 {
 
     #sect-post {
         margin-top: var(--menu-bar-desktop-padding);
+
+        font-size: 120%;
+    }
+
+    #selected-post h1,
+    #selected-post h2,
+    #selected-post h3,
+    #selected-post p,
+    #selected-post li {
+        margin-left: 4.25rem;
+        margin-right: 4.25rem;
     }
 
     /* ==== About Me ==== */
@@ -502,8 +524,21 @@ footer h4 {
     #sect-about {
         margin-top: var(--menu-bar-desktop-padding);
 
-        /* font-size: 150%; */
-        /* ^^^ Adjust this and selected post font size to align with Figma file */
+        font-size: 120%;
+    }
+
+    #about-header {
+        flex-direction: row;
+    }
+
+    #about-intro {
+        margin-left: 2em;
+    }
+
+    #about-detail {
+        margin-top: 4rem;
+        margin-left: 4.25rem;
+        margin-right: 4.25rem;
     }
 
     /* ==== Recent Post Lists ==== */
@@ -523,14 +558,13 @@ footer h4 {
         width: 100%;
         height: 15em;
     }
-
 }
 
 /* Delete code below once new home has been found for image credits */
 
 /* ==== Credit Menu - Base Attributes ==== */
 
-   .credit-div {
+.credit-div {
     display: none; /* Set to flex to enable */
     flex-direction: row;
     flex-wrap: wrap;
@@ -552,7 +586,7 @@ footer h4 {
 .credit-div .menu {
     clear: both;
     max-height: 0;
-    transition: max-height: .2s ease-out;
+    transition: max-height 0.2s ease-out;
 }
 
 /* ==== Credit Menu - Default State ==== */
@@ -565,8 +599,12 @@ footer h4 {
     cursor: pointer;
     display: inline-block;
     float: right;
-    padding:
-        calc((var(--credit-icon-width) * var(--menu-icon-padding-vertical) + 0.5em))
+    padding: calc(
+            (
+                var(--credit-icon-width) * var(--menu-icon-padding-vertical) +
+                    0.5em
+            )
+        )
         calc(var(--credit-icon-width) * var(--menu-icon-padding-horizontal));
     position: relative;
     user-select: none;
@@ -577,18 +615,18 @@ footer h4 {
     display: block;
     height: var(--credit-icon-thickness);
     position: relative;
-    transition: background .2s ease-out;
+    transition: background 0.2s ease-out;
     width: var(--credit-icon-width);
 }
 
 .credit-div .credit-icon .navicon:before,
 .credit-div .credit-icon .navicon:after {
     background: var(--color-banner-text);
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     position: absolute;
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
     width: 100%;
 }
 
@@ -608,10 +646,10 @@ footer h4 {
     top: calc((var(--credit-icon-width) / 3) * -1);
 }
 
-   /* ==== Credit Menu - Dropped-Down State ==== */
+/* ==== Credit Menu - Dropped-Down State ==== */
 
 .credit-div .menu {
-    transition: max-height .2s ease-out;
+    transition: max-height 0.2s ease-out;
 }
 
 .credit-div .credit-btn:checked ~ .menu {
