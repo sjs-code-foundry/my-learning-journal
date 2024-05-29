@@ -392,6 +392,24 @@ body {
     text-decoration: underline;
 }
 
+/* ==== Credits ==== */
+
+#sect-credits {
+    width: var(--app-width);
+    margin-top: var(--menu-bar-padding);
+    margin-left: var(--app-margin);
+    margin-right: var(--app-margin);
+}
+
+#sect-credits ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#sect-credits ul li {
+    margin-bottom: 0.3em;
+}
+
 /* ========
     Footer 
    ======== */
@@ -558,117 +576,12 @@ footer h4 {
         width: 100%;
         height: 15em;
     }
-}
 
-/* Delete code below once new home has been found for image credits */
+    /* ==== Credits ==== */
 
-/* ==== Credit Menu - Base Attributes ==== */
+    #sect-credits {
+        margin-top: var(--menu-bar-desktop-padding);
 
-.credit-div {
-    display: none; /* Set to flex to enable */
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    width: fit-content;
-    z-index: 3;
-}
-
-.credit-div ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
-.credit-div .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-}
-
-/* ==== Credit Menu - Default State ==== */
-
-.credit-div .credit-btn {
-    display: none;
-}
-
-.credit-div .credit-icon {
-    cursor: pointer;
-    display: inline-block;
-    float: right;
-    padding: calc(
-            (
-                var(--credit-icon-width) * var(--menu-icon-padding-vertical) +
-                    0.5em
-            )
-        )
-        calc(var(--credit-icon-width) * var(--menu-icon-padding-horizontal));
-    position: relative;
-    user-select: none;
-}
-
-.credit-div .credit-icon .navicon {
-    background: transparent;
-    display: block;
-    height: var(--credit-icon-thickness);
-    position: relative;
-    transition: background 0.2s ease-out;
-    width: var(--credit-icon-width);
-}
-
-.credit-div .credit-icon .navicon:before,
-.credit-div .credit-icon .navicon:after {
-    background: var(--color-banner-text);
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
-}
-
-.credit-div .credit-icon .navicon:before {
-    transform: translateY(-0.1em) rotate(-30deg);
-}
-
-.credit-div .credit-icon .navicon:after {
-    transform: translateY(0.1em) rotate(30deg);
-}
-
-.credit-div .credit-icon .navicon:before {
-    top: calc(var(--credit-icon-width) / 3);
-}
-
-.credit-div .credit-icon .navicon:after {
-    top: calc((var(--credit-icon-width) / 3) * -1);
-}
-
-/* ==== Credit Menu - Dropped-Down State ==== */
-
-.credit-div .menu {
-    transition: max-height 0.2s ease-out;
-}
-
-.credit-div .credit-btn:checked ~ .menu {
-    max-height: 20em;
-}
-
-.credit-div .credit-btn:checked ~ .credit-icon .navicon {
-    background: transparent;
-}
-
-.credit-div .credit-btn:checked ~ .credit-icon .navicon:before {
-    transform: translateY(0.3em) rotate(30deg);
-}
-
-.credit-div .credit-btn:checked ~ .credit-icon .navicon:after {
-    transform: translateY(-0.3em) rotate(-30deg);
-}
-
-.credit-div .credit-btn:checked ~ .credit-icon:not(.steps) .navicon:before,
-.credit-div .credit-btn:checked ~ .credit-icon:not(.steps) .navicon:after {
-    top: 0;
+        font-size: 120%;
+    }
 }
