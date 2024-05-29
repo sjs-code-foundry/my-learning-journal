@@ -216,51 +216,6 @@ body {
     }
 }
 
-/* ==== Hamburger Menu - Disabled (Landscape) State ==== */
-
-@media screen and (min-width: 1601px) and (orientation: Landscape) {
-
-    .header {
-        height: var(--menu-bar-desktop-height);
-    }
-    
-    .header img {
-        margin-left: var(--app-margin);
-        margin-right: 0;
-    }
-    
-    .header .menu-icon {
-        display: none;
-    }
-
-    .header .menu {
-        display: flex;
-        flex-direction: row;
-
-        max-height: 100%;
-
-        margin: 0 calc(var(--app-margin) - 1.5rem) 0 0;
-    }
-
-    .header li button {
-        padding-left: 1em;
-        padding-right: 1em;
-
-        width: 100%;
-        height: 100%;
-
-        background-color: var(--color-banners);
-        color: var(--color-banner-text);
-
-        border: none;
-    }
-
-    .header li button:hover {
-        text-decoration: underline;
-    }
-
-}
-
 /* ========================
     Container & Content
    ========================*/
@@ -327,28 +282,6 @@ body {
     text-shadow: -0.0625em -0.0625em 0 #000, 0.0625em -0.0625em 0 #000, -0.0625em 0.0625em 0 #000, 0.0625em 0.0625em 0 #000;
 }
 
-@media screen and (min-width: 1601px) and (orientation: Landscape) {
-    #hero-post {
-        display: flex;
-        flex-direction: column;
-        height: 20em;
-        font-size: 150%;
-    }
-
-    #hero-post h4 {
-        margin-top: auto;
-    }
-
-    #hero-post h1 {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    #hero-post p {
-        margin-bottom: 3.75em;
-    }
-}
-
 /* ==== Selected Post ==== */
 
 #sect-post {
@@ -363,12 +296,6 @@ body {
 #selected-post img {
     object-fit: cover;
     max-width: 100%;
-}
-
-@media screen and (min-width: 1601px) and (orientation: Landscape) {
-    #sect-post {
-        margin-top: var(--menu-bar-desktop-padding);
-    }
 }
 
 /* ==== About Me ==== */
@@ -408,15 +335,6 @@ body {
 
 #sect-about .blogs-preview .blog-reel {
     margin: 0;
-}
-
-@media screen and (min-width: 1601px) and (orientation: Landscape) {
-    #sect-about {
-        margin-top: var(--menu-bar-desktop-padding);
-
-        /* font-size: 150%; */
-        /* ^^^ Adjust this and selected post font size to align with Figma file */
-    }
 }
 
 /* ==== Recent Post Lists ==== */
@@ -471,24 +389,6 @@ body {
     text-decoration: underline;
 }
 
-@media screen and (min-width: 1601px) and (orientation: Landscape) {
-    .blog-reel {
-        grid-template-columns: auto auto auto;
-        grid-auto-rows: auto;
-
-        align-items: start;
-    }
-
-    .blog-reel li {
-        margin-top: 0;
-    }
-
-    .blog-reel li img {
-        width: 100%;
-        height: 15em;
-    }
-}
-
 /* ========
     Footer 
    ======== */
@@ -514,6 +414,119 @@ footer h4 {
 
     font-weight: normal;
 }
+
+/* ====================================
+    Media Queries - Desktop Screens 
+   ==================================== */
+
+@media screen and (min-width: 1601px) and (orientation: Landscape) {
+    /* ========
+        Header
+       ======== */
+
+    /* ==== Hamburger Menu - Disabled (Landscape) State ==== */
+
+    .header {
+        height: var(--menu-bar-desktop-height);
+    }
+    
+    .header img {
+        margin-left: var(--app-margin);
+        margin-right: 0;
+    }
+    
+    .header .menu-icon {
+        display: none;
+    }
+    
+    .header .menu {
+        display: flex;
+        flex-direction: row;
+    
+        max-height: 100%;
+    
+        margin: 0 calc(var(--app-margin) - 1.5rem) 0 0;
+    }
+    
+    .header li button {
+        padding-left: 1em;
+        padding-right: 1em;
+    
+        width: 100%;
+        height: 100%;
+    
+        background-color: var(--color-banners);
+        color: var(--color-banner-text);
+    
+        border: none;
+    }
+    
+    .header li button:hover {
+        text-decoration: underline;
+    }
+
+    /* ========================
+        Container & Content
+       ========================*/
+    
+    /* ==== Latest Splash Post ==== */
+    
+    #hero-post {
+        display: flex;
+        flex-direction: column;
+        height: 20em;
+        font-size: 150%;
+    }
+
+    #hero-post h4 {
+        margin-top: auto;
+    }
+
+    #hero-post h1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #hero-post p {
+        margin-bottom: 3.75em;
+    }
+
+    /* ==== Selected Post ==== */
+
+    #sect-post {
+        margin-top: var(--menu-bar-desktop-padding);
+    }
+
+    /* ==== About Me ==== */
+
+    #sect-about {
+        margin-top: var(--menu-bar-desktop-padding);
+
+        /* font-size: 150%; */
+        /* ^^^ Adjust this and selected post font size to align with Figma file */
+    }
+
+    /* ==== Recent Post Lists ==== */
+
+    .blog-reel {
+        grid-template-columns: auto auto auto;
+        grid-auto-rows: auto;
+
+        align-items: start;
+    }
+
+    .blog-reel li {
+        margin-top: 0;
+    }
+
+    .blog-reel li img {
+        width: 100%;
+        height: 15em;
+    }
+
+}
+
+/* Delete code below once new home has been found for image credits */
 
 /* ==== Credit Menu - Base Attributes ==== */
 
